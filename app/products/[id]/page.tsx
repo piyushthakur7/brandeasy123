@@ -12,8 +12,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const resolvedParams = use(params);
   const product = products.find((p) => p.id === resolvedParams.id);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState(product?.sizes[0] || "");
+  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || "");
 
   if (!product) return notFound();
 

@@ -32,7 +32,7 @@ export const products: Product[] = [
     category: "Printed & Canvas Art",
     subcategory: "Canvas Prints",
     images: [
-      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800",
+      "/products/ethereal_horizon_canvas.png",
       "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["12x18", "18x24", "24x36"],
@@ -49,7 +49,7 @@ export const products: Product[] = [
     category: "Metal Wall Art",
     subcategory: "Metal Sculptures",
     images: [
-      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800",
+      "/products/geometric_sunburst_sculpture.png",
       "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["24x24", "36x36"],
@@ -66,7 +66,7 @@ export const products: Product[] = [
     category: "Photography",
     subcategory: "Travel Photography",
     images: [
-      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1590050752117-23a9d7fc2431?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["8x10", "11x14", "16x20"],
     colors: ["Black Frame", "White Frame", "Oak Frame"],
@@ -82,6 +82,7 @@ export const products: Product[] = [
     category: "Wooden Wall Art",
     subcategory: "Wood Carvings",
     images: [
+      "/products/mandala_carved_plaque.png",
       "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["18x18", "24x24"],
@@ -98,6 +99,7 @@ export const products: Product[] = [
     category: "Decorative Mirrors",
     subcategory: "Ornate Mirrors",
     images: [
+      "/products/art_deco_sunray_mirror.png",
       "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["30\" Diameter", "36\" Diameter"],
@@ -162,7 +164,7 @@ export const products: Product[] = [
     category: "Metal Wall Art",
     subcategory: "Metal Wall Grills",
     images: [
-      "https://images.unsplash.com/photo-1518384401463-d3876163c195?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["48x12", "60x18"],
     colors: ["Jet Black", "Industrial Grey"],
