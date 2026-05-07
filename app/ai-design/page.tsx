@@ -1,10 +1,10 @@
 "use client";
 import { useState, useRef, useMemo } from "react";
-import { GoogleGenAI } from "@google/genai";
 import { Sparkles, Download, RefreshCw, Send, Image as LucideImage, MessageCircle, Maximize2, Layers, PenTool, Eraser } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { getWhatsAppQuoteLink } from "@/lib/whatsapp";
+import { generateAIDesign } from "@/lib/actions";
 
 const DESIGN_MODES = [
   { id: "wall-art", label: "Wall Art", icon: LucideImage, prompt: "Fine art gallery style wall decor, artistic, textured." },
@@ -37,52 +37,16 @@ export default function AIDesignPage() {
     setGeneratedImage(null);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
+      const result = await generateAIDesign(prompt, mode, brandName, aspectRatio);
       
-      const currentMode = DESIGN_MODES.find(m => m.id === mode);
-      const systemContext = currentMode?.prompt || "";
-      
-      const finalPrompt = mode === "signage" 
-        ? `Generate a professional high-end signage design for a brand named "${brandName}". ${prompt}. Style: ${systemContext}. The output should be a photorealistic image of the sign mounted on a clean, architectural wall.`
-        : `Generate a high-end masterpiece of wall art. Prompt: ${prompt}. Style: ${systemContext}, sophisticated, premium materials, high contrast, museum quality.`;
-
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-image",
-        contents: {
-          parts: [{ text: finalPrompt }]
-        },
-        config: {
-          imageConfig: {
-            aspectRatio: aspectRatio as any
-          }
-        }
-      });
-
-      // Find the image part in the parts array
-      const parts = response.candidates?.[0]?.content?.parts;
-      if (!parts) throw new Error("No response from AI");
-
-      let foundImage = false;
-      for (const part of parts) {
-        if (part.inlineData) {
-          const imageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
-          setGeneratedImage(imageUrl);
-          foundImage = true;
-          break;
-        }
-      }
-
-      if (!foundImage) {
-        // Fallback or specific error if text only
-        const textPart = parts.find(p => p.text)?.text;
-        if (textPart) {
-           throw new Error(`AI returned text instead of image: ${textPart.slice(0, 100)}...`);
-        }
-        throw new Error("Could not generate a valid design. Please try a more visual description.");
+      if (result.success && result.imageUrl) {
+        setGeneratedImage(result.imageUrl);
+      } else {
+        setError(result.error || "The creative process encountered a block. Please refine your description and try again.");
       }
     } catch (err) {
       console.error(err);
-      setError("The creative process encountered a block. Please refine your description and try again.");
+      setError("A server error occurred. Please try again later.");
     } finally {
       setLoading(false);
     }
