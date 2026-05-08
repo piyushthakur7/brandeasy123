@@ -9,21 +9,36 @@ import Link from "next/link";
 export default function ShopPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSubcategory, setSelectedSubcategory] = useState("All");
   const [sortBy, setSortBy] = useState("featured");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+
+  const availableSubcategories = useMemo(() => {
+    if (selectedCategory === "All") return [];
+    const subs = products
+      .filter((p) => p.category === selectedCategory)
+      .map((p) => p.subcategory);
+    return Array.from(new Set(subs)).sort();
+  }, [selectedCategory]);
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
       const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             p.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesCategory = selectedCategory === "All" || p.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      const matchesSubcategory = selectedSubcategory === "All" || p.subcategory === selectedSubcategory;
+      return matchesSearch && matchesCategory && matchesSubcategory;
     }).sort((a, b) => {
       if (sortBy === "price-low") return a.price - b.price;
       if (sortBy === "price-high") return b.price - a.price;
-      return 0; // Default featured/newest logic could be added
+      return 0;
     });
-  }, [searchQuery, selectedCategory, sortBy]);
+  }, [searchQuery, selectedCategory, selectedSubcategory, sortBy]);
+
+  const handleCategoryClick = (cat: string) => {
+    setSelectedCategory(cat);
+    setSelectedSubcategory("All"); // Reset subcategory when changing category
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-slate-50">
@@ -47,14 +62,14 @@ export default function ShopPage() {
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Sidebar Filters */}
-          <aside className="w-full lg:w-64 shrink-0 space-y-8">
+          <aside className="w-full lg:w-72 shrink-0 space-y-8">
             <div>
               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#0A2733] mb-4 border-b border-slate-200 pb-2">Categories</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1">
                 <li>
                   <button 
-                    onClick={() => setSelectedCategory("All")}
-                    className={`text-sm w-full text-left py-1.5 px-3 rounded-lg transition-colors ${selectedCategory === "All" ? "bg-[#2DB34A] text-white font-bold" : "text-[#2A5566] hover:bg-white"}`}
+                    onClick={() => handleCategoryClick("All")}
+                    className={`text-sm w-full text-left py-2 px-4 rounded-xl transition-all ${selectedCategory === "All" ? "bg-[#2DB34A] text-white font-bold shadow-md shadow-[#2DB34A]/20" : "text-[#2A5566] hover:bg-white"}`}
                   >
                     All Collections
                   </button>
@@ -62,11 +77,42 @@ export default function ShopPage() {
                 {categories.map((cat) => (
                   <li key={cat}>
                     <button 
-                      onClick={() => setSelectedCategory(cat)}
-                      className={`text-sm w-full text-left py-1.5 px-3 rounded-lg transition-colors ${selectedCategory === cat ? "bg-[#2DB34A] text-white font-bold" : "text-[#2A5566] hover:bg-white"}`}
+                      onClick={() => handleCategoryClick(cat)}
+                      className={`text-sm w-full text-left py-2 px-4 rounded-xl transition-all ${selectedCategory === cat ? "bg-[#2DB34A] text-white font-bold shadow-md shadow-[#2DB34A]/20" : "text-[#2A5566] hover:bg-white"}`}
                     >
                       {cat}
                     </button>
+                    
+                    {/* Subcategories (Only visible if parent category is selected) */}
+                    <AnimatePresence>
+                      {selectedCategory === cat && availableSubcategories.length > 0 && (
+                        <motion.ul 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="ml-4 mt-1 border-l-2 border-[#2DB34A]/20 pl-2 space-y-1 overflow-hidden"
+                        >
+                          <li>
+                            <button 
+                              onClick={() => setSelectedSubcategory("All")}
+                              className={`text-[11px] w-full text-left py-1.5 px-3 rounded-lg transition-colors ${selectedSubcategory === "All" ? "text-[#2DB34A] font-bold" : "text-slate-500 hover:text-[#2DB34A]"}`}
+                            >
+                              View All {cat}
+                            </button>
+                          </li>
+                          {availableSubcategories.map((sub) => (
+                            <li key={sub}>
+                              <button 
+                                onClick={() => setSelectedSubcategory(sub)}
+                                className={`text-[11px] w-full text-left py-1.5 px-3 rounded-lg transition-colors ${selectedSubcategory === sub ? "text-[#2DB34A] font-bold bg-[#2DB34A]/5" : "text-slate-500 hover:text-[#2DB34A] hover:bg-slate-100"}`}
+                              >
+                                {sub}
+                              </button>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
                   </li>
                 ))}
               </ul>
@@ -210,7 +256,7 @@ export default function ShopPage() {
                 <p className="text-[#0A2733] font-serif text-xl font-bold mb-2">No products found</p>
                 <p className="text-slate-400 text-sm">Try adjusting your filters or search keywords.</p>
                 <button 
-                  onClick={() => {setSearchQuery(""); setSelectedCategory("All");}}
+                  onClick={() => {setSearchQuery(""); setSelectedCategory("All"); setSelectedSubcategory("All");}}
                   className="mt-6 text-[#2DB34A] text-xs font-bold uppercase tracking-widest underline underline-offset-8"
                 >
                   Clear all filters
