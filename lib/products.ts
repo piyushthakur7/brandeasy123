@@ -324,60 +324,357 @@ export const products: Product[] = [
     features: ["Wind Permeable", "Matte Finish"]
   },
 
-  // ─── STANDS & DISPLAYS ───
+  // ─── STANDS & DISPLAYS: BANNER STANDS ───
   {
-    id: "stand-01",
-    title: "Retractable Roll-Up Banner Stand",
-    description: "Professional retractable banner stand with premium aluminum base. Sets up in 60 seconds. Includes padded carry bag for easy transport.",
+    id: "stand-bs-01",
+    title: "Deluxe Roll-Up Banner Stand",
+    description: "Premium wide-base retractable stand for high-end displays. Sturdy, elegant, and sets up in seconds.",
     price: 3500,
     category: "Stands & Displays",
     subcategory: "Banner Stands",
     images: [],
-    sizes: ["33x80 in", "36x92 in", "47x80 in"],
-    colors: ["Silver Base", "Black Base"],
-    material: "Aluminum + Premium Vinyl Print",
-    features: ["60-Second Setup", "Carry Bag Included", "Interchangeable Graphics", "Adjustable Height"],
+    sizes: ["33x80 in", "47x80 in"],
+    colors: ["Silver", "Black"],
+    material: "Aluminum Base + Premium Vinyl",
+    features: ["Retractable", "Padded Carry Bag"],
     isFeatured: true
   },
   {
-    id: "stand-02",
-    title: "Pop-Up Trade Show Display",
-    description: "Curved magnetic pop-up display with seamless graphics. Creates a stunning 10ft backdrop for trade shows and exhibitions.",
-    price: 18500,
+    id: "stand-bs-04",
+    title: "Deluxe Wide Base Single Screen Roll Up",
+    description: "Extra stable wide-base retractable stand for single-sided graphics. Premium heavy-duty construction.",
+    price: 4800,
     category: "Stands & Displays",
-    subcategory: "Trade Show Display Packages",
+    subcategory: "Banner Stands",
     images: [],
-    sizes: ["8ft Curved", "10ft Curved", "10ft Straight"],
-    colors: ["Full Color Print"],
-    material: "Magnetic Frame + Fabric Panels",
-    features: ["Tool-Free Assembly", "LED Spotlights", "Wheeled Case", "Lifetime Frame Warranty"],
-    isFeatured: true
+    sizes: ["33x80 in", "48x80 in"],
+    colors: ["Silver"],
+    material: "Heavy-duty Aluminum",
+    features: ["Extra Stability", "Premium Finish"]
   },
   {
-    id: "stand-03",
-    title: "Canopy Tent 10x10",
-    description: "Custom printed canopy tent with full-color roof and optional sidewalls. Sturdy steel frame with easy pop-up mechanism.",
+    id: "stand-bs-05",
+    title: "Adjustable X Banner Stand",
+    description: "Versatile X-frame stand with adjustable height and width to fit multiple banner sizes.",
+    price: 1500,
+    category: "Stands & Displays",
+    subcategory: "Banner Stands",
+    images: [],
+    sizes: ["Adjustable"],
+    colors: ["Black"],
+    material: "Fiberglass / Plastic",
+    features: ["Fits Multiple Sizes", "Lightweight"]
+  },
+  {
+    id: "stand-bs-06",
+    title: "L Banner Stand",
+    description: "Sleek L-shaped frame for a minimalist, modern display. High tension holds the banner perfectly flat.",
+    price: 2200,
+    category: "Stands & Displays",
+    subcategory: "Banner Stands",
+    images: [],
+    sizes: ["31x79 in"],
+    colors: ["Silver"],
+    material: "Aluminum L-Frame",
+    features: ["Minimalist Design", "Stable Support"]
+  },
+  {
+    id: "stand-bs-02",
+    title: "Korean X Banner Stand",
+    description: "Lightweight and cost-effective X-frame stand. Easy to swap graphics and perfect for high-volume deployments.",
+    price: 1200,
+    category: "Stands & Displays",
+    subcategory: "Banner Stands",
+    images: [],
+    sizes: ["24x63 in", "32x71 in"],
+    colors: ["Black"],
+    material: "Fiberglass / Carbon Fiber Poles",
+    features: ["Quick Graphics Swap", "Portable"]
+  },
+  {
+    id: "stand-bs-03",
+    title: "EZ Extend Fabric Display",
+    description: "Sleek pillowcase-style fabric display. Graphics slide over the frame for a seamless, professional look.",
+    price: 5500,
+    category: "Stands & Displays",
+    subcategory: "Banner Stands",
+    images: [],
+    sizes: ["2ft", "3ft", "4ft", "5ft Wide"],
+    colors: ["Full Color"],
+    material: "Aluminum Tube Frame + Tension Fabric",
+    features: ["Seamless Graphics", "Tool-free Assembly"]
+  },
+
+  // ─── STANDS & DISPLAYS: CANOPY TENTS ───
+  {
+    id: "stand-ct-01",
+    title: "Custom Event Canopy 10x10",
+    description: "Fully customizable pop-up tent for outdoor branding. High-quality roof print with optional side walls.",
     price: 12000,
     category: "Stands & Displays",
     subcategory: "Canopy Tents",
     images: [],
-    sizes: ["10x10 ft", "10x15 ft", "10x20 ft"],
-    colors: ["Full Color Print", "Solid Colors Available"],
-    material: "600D Polyester + Steel Frame",
-    features: ["UV 50+ Protection", "Water Resistant", "Carry Bag", "Sidewalls Optional"]
+    sizes: ["10x10 ft"],
+    colors: ["Full Color Print"],
+    material: "600D Polyester + Hexagonal Aluminum Frame",
+    features: ["Waterproof", "UV Protected", "Includes Bag"],
+    isFeatured: true
   },
   {
-    id: "stand-04",
-    title: "Promotional Counter Display",
-    description: "Portable promotional counter with custom wrap graphics. Perfect for sampling, registration desks, and product demos.",
+    id: "stand-ct-02",
+    title: "Blank Commercial Canopy",
+    description: "High-quality solid color canopy tent. Durable and professional for trade shows and outdoor markets.",
+    price: 8500,
+    category: "Stands & Displays",
+    subcategory: "Canopy Tents",
+    images: [],
+    sizes: ["10x10 ft"],
+    colors: ["White", "Black", "Blue", "Red"],
+    material: "Professional Grade Polyester",
+    features: ["Commercial Frame", "Quick Setup"]
+  },
+  {
+    id: "stand-ct-03",
+    title: "Emergency Medical Tent 10x10",
+    description: "Rapid deployment medical shelter with high-visibility branding. Water-resistant and durable for emergency use.",
+    price: 14500,
+    category: "Stands & Displays",
+    subcategory: "Canopy Tents",
+    images: [],
+    sizes: ["10x10 ft"],
+    colors: ["White/Red"],
+    material: "Heavy-duty 500D Polyester",
+    features: ["Medical Branding", "Flame Retardant"]
+  },
+  {
+    id: "stand-ct-04",
+    title: "Compact 6x6 Canopy",
+    description: "Small footprint canopy for tight spaces, ticket booths, or individual vendor stations.",
+    price: 6500,
+    category: "Stands & Displays",
+    subcategory: "Canopy Tents",
+    images: [],
+    sizes: ["6x6 ft"],
+    colors: ["Various Solid Colors"],
+    material: "Durable Polyester",
+    features: ["Compact", "Easy Portability"]
+  },
+
+  // ─── STANDS & DISPLAYS: STEP & REPEAT ───
+  {
+    id: "stand-sr-01",
+    title: "Wall Box Fabric Display",
+    description: "Large format tension fabric wall for press conferences and events. Perfectly flat and vibrant surface.",
+    price: 18500,
+    category: "Stands & Displays",
+    subcategory: "Step & Repeat Displays",
+    images: [],
+    sizes: ["8x8 ft", "10x8 ft", "20x8 ft"],
+    colors: ["Full Color"],
+    material: "Aluminum Box Frame + Tension Fabric",
+    features: ["Non-reflective", "Massive Presence"],
+    isFeatured: true
+  },
+
+  // ─── STANDS & DISPLAYS: HANGING BANNERS ───
+  {
+    id: "stand-hb-01",
+    title: "Sky Tube Circle Hanging Banner",
+    description: "Circular hanging display for maximum visibility in trade show halls. Suspends from the ceiling to showcase your brand from all angles.",
+    price: 15000,
+    category: "Stands & Displays",
+    subcategory: "Sky Tube Hanging Banners",
+    images: [],
+    sizes: ["8ft Diameter", "10ft Diameter"],
+    colors: ["Full Color"],
+    material: "Aluminum Tube + Fabric Pillowcase",
+    features: ["360 Degree Branding", "Hanging Hardware Included"]
+  },
+
+  // ─── STANDS & DISPLAYS: INFLATABLES ───
+  {
+    id: "stand-inf-01",
+    title: "Inflatable Tube Man",
+    description: "Dynamic dancing inflatable to attract attention to your storefront. Includes high-powered blower.",
+    price: 4500,
+    category: "Stands & Displays",
+    subcategory: "Inflatables",
+    images: [],
+    sizes: ["10ft", "20ft"],
+    colors: ["Yellow", "Red", "Blue", "Custom"],
+    material: "High-strength Rip-stop Nylon",
+    features: ["Includes Blower", "Continuous Motion"]
+  },
+  {
+    id: "stand-inf-02",
+    title: "High-Powered Inflatable Blower",
+    description: "Weather-resistant commercial blower for inflatable tube men and other inflatable displays.",
+    price: 2800,
+    category: "Stands & Displays",
+    subcategory: "Inflatables",
+    images: [],
+    sizes: ["9 inch", "12 inch", "18 inch"],
+    colors: ["Black"],
+    material: "Industrial Plastic / Metal",
+    features: ["Weather Resistant", "High Airflow"]
+  },
+
+  // ─── STANDS & DISPLAYS: POP-UP DISPLAYS ───
+  {
+    id: "stand-pup-01",
+    title: "Fabric Pop Up Straight Display",
+    description: "Large format straight pop-up display with seamless tension fabric. Professional backdrop for trade shows and exhibitions.",
+    price: 18500,
+    category: "Stands & Displays",
+    subcategory: "Pop-Up Banner Display",
+    images: [],
+    sizes: ["8ft", "10ft", "20ft"],
+    colors: ["Full Color"],
+    material: "Aluminum Scissor Frame + Tension Fabric",
+    features: ["Seamless Graphics", "Tool-free Setup", "Carry Case Included"],
+    isFeatured: true
+  },
+  {
+    id: "stand-pup-02",
+    title: "Fabric Pop Up Curved Display",
+    description: "Elegant curved pop-up display for a wrap-around branding effect. High-impact visuals for large event spaces.",
+    price: 19500,
+    category: "Stands & Displays",
+    subcategory: "Pop-Up Banner Display",
+    images: [],
+    sizes: ["8ft", "10ft"],
+    colors: ["Full Color"],
+    material: "Aluminum Curved Frame + Tension Fabric",
+    features: ["Deep Color Saturation", "Quick Assembly"]
+  },
+  {
+    id: "stand-pup-03",
+    title: "Fabric Pop Up Booth Square",
+    description: "Self-contained square fabric booth for consultations or product displays. Modern and professional aesthetic.",
+    price: 12500,
+    category: "Stands & Displays",
+    subcategory: "Pop-Up Banner Display",
+    images: [],
+    sizes: ["Standard"],
+    colors: ["Full Color"],
+    material: "Aluminum Frame + Fabric Wrap",
+    features: ["Portable Booth", "Internal Shelf"]
+  },
+
+  // ─── STANDS & DISPLAYS: FRAMES & SIDEWALK SIGNS ───
+  {
+    id: "stand-fs-01",
+    title: "SEG Fabric Frame",
+    description: "Silicone Edge Graphic (SEG) frames for a perfectly tensioned, frameless appearance. Ideal for retail environments.",
+    price: 8500,
+    category: "Stands & Displays",
+    subcategory: "Frames & Sidewalk Signs",
+    images: [],
+    sizes: ["2x3 ft", "3x4 ft", "Custom"],
+    colors: ["Silver Frame", "Black Frame"],
+    material: "Aluminum Profile + Tension Fabric",
+    features: ["Frameless Look", "Easy Graphics Update"]
+  },
+  {
+    id: "stand-fs-02",
+    title: "Deluxe Sandwich Board",
+    description: "Heavy-duty plastic A-frame sidewalk sign. Fillable with sand or water for maximum stability in windy conditions.",
+    price: 4500,
+    category: "Stands & Displays",
+    subcategory: "Frames & Sidewalk Signs",
+    images: [],
+    sizes: ["24x36 in"],
+    colors: ["Black", "White"],
+    material: "High-density Polyethylene",
+    features: ["Wind Resistant", "Double Sided", "Interchangeable Signs"],
+    isFeatured: true
+  },
+  {
+    id: "stand-fs-03",
+    title: "Metal A-Frame Sign",
+    description: "Classic durable metal A-frame for sidewalk advertising. Sleek and professional with easy-to-change graphics.",
+    price: 3800,
+    category: "Stands & Displays",
+    subcategory: "Frames & Sidewalk Signs",
+    images: [],
+    sizes: ["24x36 in"],
+    colors: ["Black"],
+    material: "Powder-coated Steel",
+    features: ["Heavy Duty", "Foldable", "Weatherproof"]
+  },
+
+  // ─── STANDS & DISPLAYS: TRADE SHOW PACKAGES ───
+  {
+    id: "stand-pkg-01",
+    title: "Trade Show Canopy Kit",
+    description: "All-in-one canopy package including custom printed roof, back wall, and two side walls. Complete branding solution.",
+    price: 25500,
+    category: "Stands & Displays",
+    subcategory: "Trade Show Display Packages",
+    images: [],
+    sizes: ["10x10 ft"],
+    colors: ["Full Color"],
+    material: "Commercial Grade Canopy Set",
+    features: ["Full Walls Included", "Heavy Duty Frame", "Travel Bag"],
+    isFeatured: true
+  },
+  {
+    id: "stand-pkg-02",
+    title: "Economy Display Package",
+    description: "Cost-effective starter kit for trade shows. Includes a roll-up banner stand, a table runner, and a promotional counter.",
+    price: 12500,
+    category: "Stands & Displays",
+    subcategory: "Trade Show Display Packages",
+    images: [],
+    sizes: ["Standard Bundle"],
+    colors: ["Full Color"],
+    material: "Mixed Media",
+    features: ["Essential Branding", "Coordinated Design"]
+  },
+
+  // ─── STANDS & DISPLAYS: PROMOTIONAL COUNTERS ───
+  {
+    id: "stand-pc-01",
+    title: "Economy Promotional Counter",
+    description: "Portable demo counter for product sampling and trade shows. Lightweight and includes custom branding wrap.",
     price: 7500,
     category: "Stands & Displays",
     subcategory: "Promotional Counters",
     images: [],
-    sizes: ["Standard (40x15x36 in)", "Wide (48x15x36 in)"],
+    sizes: ["Standard"],
     colors: ["Full Color Wrap"],
-    material: "Lightweight Aluminum + Fabric Wrap",
-    features: ["Internal Shelf", "Portable", "Custom Graphics", "Carry Case"]
+    material: "PVC / Aluminum Frame",
+    features: ["Internal Storage", "Carry Bag Included"]
+  },
+
+  // ─── STANDS & DISPLAYS: SNEEZE GUARDS ───
+  {
+    id: "stand-sg-01",
+    title: "Floor Standing Sneeze Shield",
+    description: "Clear acrylic partition on a stable floor stand. Provides protection for reception desks and checkout counters.",
+    price: 4500,
+    category: "Stands & Displays",
+    subcategory: "Sneeze Guards & Partitions",
+    images: [],
+    sizes: ["36x72 in"],
+    colors: ["Clear"],
+    material: "Premium Acrylic + Aluminum Stand",
+    features: ["Easy Clean", "Portable"]
+  },
+
+  // ─── STANDS & DISPLAYS: SHADES & UMBRELLAS ───
+  {
+    id: "stand-su-01",
+    title: "Custom Printed Cafe Umbrella",
+    description: "Branded outdoor umbrella for cafes, restaurants, and outdoor events. Durable frame with vibrant canopy printing.",
+    price: 9500,
+    category: "Stands & Displays",
+    subcategory: "Shades & Umbrellas",
+    images: [],
+    sizes: ["7ft", "9ft"],
+    colors: ["Full Color Print"],
+    material: "Commercial Grade Canvas + Aluminum Pole",
+    features: ["Wind-vented", "UV Protected"]
   },
 
   // ─── TABLE COVERS & DISPLAYS ───
