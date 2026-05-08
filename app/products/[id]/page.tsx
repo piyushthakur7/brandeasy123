@@ -106,7 +106,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <span className="text-slate-400 line-through text-lg">₹{(product.price * 1.25).toLocaleString()}</span>
                 <div className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">20% OFF</div>
               </div>
-              <p className="text-[#2DB34A] text-xs font-bold tracking-widest uppercase">✦ Only 3 pieces left in stock</p>
+              <p className="text-[#2DB34A] text-xs font-bold tracking-widest uppercase">✦ In Stock — Ships within 3-5 business days</p>
             </div>
 
             {/* Options */}
@@ -154,7 +154,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 className="flex-1 bg-[#2DB34A] text-white py-5 rounded-2xl flex items-center justify-center gap-3 text-xs font-black uppercase tracking-[0.3em] hover:bg-[#1F8A37] transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-slate-200"
               >
                 <MessageCircle size={18} />
-                Get Art Quote
+                Get a Quote
               </a>
               <div className="flex gap-4">
                 <button className="p-5 border-2 border-slate-100 rounded-2xl text-[#0A2733] hover:bg-slate-50 transition-colors">
@@ -170,11 +170,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-50 rounded-3xl border border-slate-100">
               <div className="flex flex-col items-center text-center gap-2">
                 <Truck size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Safe Transit</span>
+                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Fast Shipping</span>
               </div>
               <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
                 <ShieldCheck size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Quality Obsessed</span>
+                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Premium Quality</span>
               </div>
               <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
                 <RefreshCw size={20} className="text-[#0099D4]" />
@@ -182,7 +182,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
               <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
                 <Star size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Curated Art</span>
+                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Bulk Discounts</span>
               </div>
             </div>
           </div>
@@ -191,13 +191,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {/* Description & Technical */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24 py-16 border-y border-slate-100">
           <div className="md:col-span-2 space-y-8">
-            <h2 className="text-3xl font-serif font-bold text-[#0A2733]">Artist&apos;s Vision & Craft</h2>
+            <h2 className="text-3xl font-serif font-bold text-[#0A2733]">Product Details & Specifications</h2>
             <div className="prose prose-slate max-w-none text-[#2A5566] leading-relaxed font-light">
-              <p>Each {product.title} is a testament to our commitment to high-end decor. The material used is <strong>{product.material}</strong>, chosen specifically for its durability and aesthetic properties.</p>
+              <p>The {product.title} is crafted with <strong>{product.material}</strong>, chosen specifically for its durability and professional finish. Built to meet commercial-grade standards.</p>
               <ul className="list-disc pl-5 mt-6 space-y-3">
                 {product.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
-              <p className="mt-8">We believe that wall art should be as enduring as the emotions it evokes. That is why we use archival-grade materials and hand-finish every single piece in our studio.</p>
+              <p className="mt-8">At Brand Easy, we use only premium materials and state-of-the-art printing technology to ensure every product meets the highest standards of quality and brand consistency.</p>
             </div>
           </div>
           <div className="bg-slate-50 p-8 rounded-3xl h-fit">
@@ -213,7 +213,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
               <div className="flex justify-between text-xs py-2 border-b border-slate-200">
                 <span className="text-slate-500">Origin</span>
-                <span className="font-bold text-[#0A2733]">Artisan Crafted in India</span>
+                <span className="font-bold text-[#0A2733]">Made in India</span>
               </div>
             </div>
           </div>

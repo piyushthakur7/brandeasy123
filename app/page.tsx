@@ -8,10 +8,12 @@ import StatsSection from "@/components/StatsSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import CTASection from "@/components/CTASection";
+import PromoPopup from "@/components/PromoPopup";
 
 export default function HomePage() {
   return (
     <>
+      <PromoPopup />
       <GoldChevronStrip />
       <HeroSection />
       <GoldChevronStrip />

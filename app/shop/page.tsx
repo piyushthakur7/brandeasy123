@@ -35,10 +35,10 @@ export default function ShopPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-white font-serif text-4xl md:text-6xl font-bold mb-4"
           >
-            The <span className="text-[#2DB34A] italic">Artisan</span> Collection
+            The <span className="text-[#2DB34A] italic">Complete</span> Catalog
           </motion.h1>
           <p className="text-white/60 text-sm md:text-lg max-w-2xl mx-auto font-light">
-            Curated wall art for modern spaces. From hand-carved wood to laser-cut metal.
+            Premium printing & branding solutions. From banners to business cards.
           </p>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function ShopPage() {
 
             <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#0A2733] mb-4">Newsletter</h3>
-              <p className="text-xs text-slate-500 mb-4">Get early access to limited edition art drops.</p>
+              <p className="text-xs text-slate-500 mb-4">Get exclusive deals and new product updates.</p>
               <input type="email" placeholder="Email Address" className="w-full px-3 py-2 text-xs border rounded-lg mb-2 focus:outline-none focus:ring-1 focus:ring-[#2DB34A]" />
               <button className="w-full bg-[#0A2733] text-white text-[10px] font-bold py-2 rounded-lg uppercase tracking-widest">Subscribe</button>
             </div>
@@ -88,7 +88,7 @@ export default function ShopPage() {
                 <Search size={18} className="text-slate-400" />
                 <input 
                   type="text" 
-                  placeholder="Search artwork..." 
+                  placeholder="Search products..." 
                   className="bg-transparent border-none focus:outline-none text-sm w-full"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -198,7 +198,7 @@ export default function ShopPage() {
             {filteredProducts.length === 0 && (
               <div className="text-center py-32 bg-white rounded-3xl border-2 border-dashed border-slate-200">
                 <Search size={48} className="mx-auto text-slate-200 mb-6" />
-                <p className="text-[#0A2733] font-serif text-xl font-bold mb-2">No masterpieces found</p>
+                <p className="text-[#0A2733] font-serif text-xl font-bold mb-2">No products found</p>
                 <p className="text-slate-400 text-sm">Try adjusting your filters or search keywords.</p>
                 <button 
                   onClick={() => {setSearchQuery(""); setSelectedCategory("All");}}

@@ -5,46 +5,46 @@ import { motion } from "motion/react";
 
 const collections = [
   {
-    title: "Metal Wall Art",
-    desc: "Laser-cut architectural pieces with hand-polished finishes in gold, silver, and copper.",
-    img: "/products/geometric_sunburst_sculpture.png",
-    tag: "Architect's Choice",
-    icon: "🏗️",
+    title: "Banners",
+    desc: "Vinyl, fabric, mesh & event banners with vibrant full-color printing for any occasion.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=400",
+    tag: "Best Seller",
+    icon: "🏷️",
   },
   {
-    title: "Canvas Masterpieces",
-    desc: "High-resolution abstract and landscape prints on museum-grade poly-cotton canvas.",
-    img: "/products/ethereal_horizon_canvas.png",
+    title: "Stands & Displays",
+    desc: "Roll-up stands, pop-up displays, canopy tents & counters for trade shows and events.",
+    img: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "🎨",
+    icon: "🎪",
   },
   {
-    title: "Wooden Sculptures",
-    desc: "Hand-carved reclaimed wood plaques and 3D geometric wall installations.",
-    img: "/products/mandala_carved_plaque.png",
+    title: "Table Covers",
+    desc: "Fitted, stretch & custom table covers that give your booth a polished professional look.",
+    img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "🪵",
+    icon: "🎯",
   },
   {
-    title: "Decorative Mirrors",
-    desc: "Bespoke beveled glass mirrors that serve as both utility and high-end wall decor.",
-    img: "/products/art_deco_sunray_mirror.png",
-    tag: "Luxury",
-    icon: "🪞",
+    title: "Custom Flags",
+    desc: "Feather flags, teardrop banners & desk flags for maximum brand visibility anywhere.",
+    img: "https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?auto=format&fit=crop&q=80&w=400",
+    tag: "Popular",
+    icon: "🚩",
   },
   {
-    title: "Fine Art Photo",
-    desc: "Breathtaking landscapes and travel photography from around the world.",
-    img: "https://images.unsplash.com/photo-1590050752117-23a9d7fc2431?auto=format&fit=crop&q=80&w=400",
+    title: "Signs & Decals",
+    desc: "Acrylic signs, floor decals & vehicle wraps for impactful indoor and outdoor branding.",
+    img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "📷",
+    icon: "✏️",
   },
   {
-    title: "Tapestry & Textiles",
-    desc: "Hand-woven macrame and premium fabric wall hangings for organic textures.",
-    img: "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&q=80&w=400",
+    title: "Marketing Materials",
+    desc: "Business cards, brochures, stickers & labels — everything to power your brand presence.",
+    img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "🧶",
+    icon: "📇",
   },
 ];
 
@@ -73,9 +73,9 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-[#0099D4] text-[10px] tracking-[0.5em] uppercase font-black mb-4">Curated Mediums</p>
+            <p className="text-[#0099D4] text-[10px] tracking-[0.5em] uppercase font-black mb-4">What We Offer</p>
             <h2 className="text-[#0A2733] font-serif text-4xl md:text-6xl font-black leading-[1.1]">
-              The Art <span className="text-[#0077A8] italic font-medium">Collections</span>
+              Our <span className="text-[#0077A8] italic font-medium">Product</span> Range
             </h2>
             <div className="flex items-center justify-center gap-4 mt-8">
               <div className="h-[2px] w-12 bg-[#2DB34A]" />
@@ -118,7 +118,7 @@ export default function ServicesSection() {
                     <h3 className="text-[#0A2733] font-serif font-black mb-4 text-2xl">{s.title}</h3>
                     <p className="text-[#2A5566] text-base leading-relaxed mb-8 font-light">{s.desc}</p>
                     <div className="mt-auto pt-6 border-t border-slate-50 w-full text-[#2DB34A] text-[9px] font-black tracking-[0.2em] uppercase group-hover:translate-x-2 transition-transform">
-                      Explorer Medium →
+                      Explore Products →
                     </div>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function ServicesSection() {
             href="/shop"
             className="inline-block bg-[#0A2733] text-white px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-black hover:bg-[#0099D4] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-slate-200"
           >
-            Visit The Complete Shop
+            Browse All Products
           </Link>
         </div>
       </div>
