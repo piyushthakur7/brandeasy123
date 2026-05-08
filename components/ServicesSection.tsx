@@ -9,42 +9,36 @@ const collections = [
     desc: "Vinyl, fabric, mesh & event banners with vibrant full-color printing for any occasion.",
     img: "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=400",
     tag: "Best Seller",
-    icon: "🏷️",
   },
   {
     title: "Stands & Displays",
     desc: "Roll-up stands, pop-up displays, canopy tents & counters for trade shows and events.",
     img: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "🎪",
   },
   {
     title: "Table Covers",
     desc: "Fitted, stretch & custom table covers that give your booth a polished professional look.",
     img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "🎯",
   },
   {
     title: "Custom Flags",
     desc: "Feather flags, teardrop banners & desk flags for maximum brand visibility anywhere.",
     img: "https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?auto=format&fit=crop&q=80&w=400",
     tag: "Popular",
-    icon: "🚩",
   },
   {
     title: "Signs & Decals",
     desc: "Acrylic signs, floor decals & vehicle wraps for impactful indoor and outdoor branding.",
     img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "✏️",
   },
   {
     title: "Marketing Materials",
     desc: "Business cards, brochures, stickers & labels — everything to power your brand presence.",
     img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=400",
     tag: null,
-    icon: "📇",
   },
 ];
 
@@ -112,9 +106,6 @@ export default function ServicesSection() {
                         {s.tag}
                       </span>
                     )}
-                    <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-500">
-                      {s.icon}
-                    </div>
                     <h3 className="text-[#0A2733] font-serif font-black mb-4 text-2xl">{s.title}</h3>
                     <p className="text-[#2A5566] text-base leading-relaxed mb-8 font-light">{s.desc}</p>
                     <div className="mt-auto pt-6 border-t border-slate-50 w-full text-[#2DB34A] text-[9px] font-black tracking-[0.2em] uppercase group-hover:translate-x-2 transition-transform">

@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-serif font-black mb-8">Brand Easy Art</h3>
+            <h3 className="text-2xl font-serif font-black mb-8">Brand Easy</h3>
             <p className="text-white/60 text-lg max-w-md leading-relaxed mb-8">
-              Transforming spaces into galleries. High-end, handcrafted wall art for the sophisticated collector.
+              Premium printing and branding solutions for businesses. High-quality banners, signs, and marketing materials.
             </p>
             <div className="flex gap-6">
                {/* Social placeholders */}
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-6 text-[10px] font-black tracking-widest uppercase text-white/40">
-           <p>© 2026 Brand Easy Art. All Rights Reserved.</p>
+           <p>© 2026 Brand Easy. All Rights Reserved.</p>
            <div className="flex gap-8">
              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

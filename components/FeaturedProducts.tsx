@@ -19,7 +19,7 @@ export default function FeaturedProducts() {
             <div>
               <p className="text-[#2DB34A] text-[10px] font-black tracking-[0.5em] uppercase mb-4">Curated Collection</p>
               <h2 className="text-[#0A2733] font-serif text-4xl md:text-6xl font-bold leading-tight">
-                Artistic <span className="text-[#0099D4] italic">Showcase</span>
+                Product <span className="text-[#0099D4] italic">Showcase</span>
               </h2>
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function FeaturedProducts() {
 
         {/* Categories Quick Links */}
         <div className="mt-20 flex flex-wrap justify-center gap-4">
-             {["Canvas", "Metal", "Wood", "Photography", "Large Scale"].map((tag) => (
+             {["Banners", "Stands", "Table Covers", "Flags", "Signage", "Marketing"].map((tag) => (
                <Link 
                  key={tag}
                  href={`/shop`}

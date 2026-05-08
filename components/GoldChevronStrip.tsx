@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "motion/react";
+import { Truck, Palette, Clock, ShieldCheck, Phone } from "lucide-react";
 
 export default function GoldChevronStrip() {
   const items = [
-    "🚚 Free Shipping Over ₹999",
-    "🎨 Free Design Proofs",
-    "⚡ 3-5 Day Delivery",
-    "💎 Premium Quality Guaranteed",
-    "📞 1800-XXX-XXXX",
+    { icon: Truck, text: "Free Shipping Over ₹999" },
+    { icon: Palette, text: "Free Design Proofs" },
+    { icon: Clock, text: "3-5 Day Delivery" },
+    { icon: ShieldCheck, text: "Premium Quality Guaranteed" },
+    { icon: Phone, text: "1800-XXX-XXXX" },
   ];
 
   return (
@@ -20,11 +21,14 @@ export default function GoldChevronStrip() {
       >
         {[...Array(10)].map((_, i) => (
           <div key={i} className="flex items-center gap-0">
-            {items.map((item) => (
-              <div key={item} className="flex items-center">
-                <span className="text-[11px] font-semibold tracking-wide text-white/80 px-6">
-                  {item}
-                </span>
+            {items.map((item, idx) => (
+              <div key={idx} className="flex items-center">
+                <div className="flex items-center gap-2 px-6">
+                  <item.icon size={14} className="text-[#2DB34A]" />
+                  <span className="text-[11px] font-semibold tracking-wide text-white/80">
+                    {item.text}
+                  </span>
+                </div>
                 <span className="text-[#2DB34A] text-xs">|</span>
               </div>
             ))}

@@ -12,13 +12,13 @@ export default function BrandStatementSection() {
       >
         <p className="text-[#2DB34A] text-[10px] font-black tracking-[0.5em] uppercase mb-8">The Ethos</p>
         <h2 className="text-[#0A2733] font-serif text-3xl md:text-5xl font-black leading-tight mb-12">
-          "Art is not just what you see, but what you <span className="text-[#0099D4] italic">experience</span> in your own sanctuary."
+          "Your brand is not just what you say, but what your customers <span className="text-[#0099D4] italic">perceive</span> through every touchpoint."
         </h2>
         <div className="w-24 h-px bg-slate-200 mx-auto mb-12" />
         <p className="text-slate-500 font-sans text-lg max-w-2xl mx-auto leading-relaxed">
-          At Brand Easy Art, we believe your walls tell your story. Our curated collection of high-end wall decor 
-          is handcrafted with precision, blending modern aesthetics with timeless craftsmanship to transform 
-          every workspace and home into a masterpiece.
+          At Brand Easy, we believe your branding tells your story. Our high-end printing and branding solutions 
+          are crafted with precision, blending modern technology with timeless quality to transform 
+          every business presence into a professional masterpiece.
         </p>
       </motion.div>
     </section>

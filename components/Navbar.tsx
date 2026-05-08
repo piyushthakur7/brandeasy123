@@ -10,9 +10,9 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/shop" },
   { label: "Products", href: "/products" },
-  { label: "AI Art", href: "/ai-design" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "About Us", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -79,7 +79,7 @@ export default function Navbar() {
               <span className="text-blue-700">Easy</span>
             </span>
             <span className="text-[#2DB34A]/70 text-[9px] tracking-[0.25em] uppercase">
-              Art & Luxury Gallery
+              Premium Printing & Branding
             </span>
           </div>
         </Link>
