@@ -7,7 +7,7 @@ const collections = [
   {
     title: "Banners",
     desc: "Vinyl, fabric, mesh & event banners with vibrant full-color printing for any occasion.",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=400",
+    img: "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=400",
     tag: "Best Seller",
     icon: "🏷️",
   },

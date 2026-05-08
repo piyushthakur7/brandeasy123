@@ -34,7 +34,7 @@ export const products: Product[] = [
     category: "Banners",
     subcategory: "Vinyl Banners",
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["3x6 ft", "4x8 ft", "5x10 ft", "Custom"],
@@ -309,7 +309,7 @@ export const products: Product[] = [
     category: "Asset Tags",
     subcategory: "Metal Asset Tags",
     images: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=800"
     ],
     sizes: ["1x3 in", "1.5x3 in", "2x4 in"],
     colors: ["Silver", "Black", "Blue"],
