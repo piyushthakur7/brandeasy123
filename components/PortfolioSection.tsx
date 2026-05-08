@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const spaces = [
-  { name: "Modern Minimalist", type: "Metal Art Focus", location: "Living Room", img: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800" },
-  { name: "Rustic Hearth", type: "Wooden Sculpture", location: "Classic Office", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800" },
-  { name: "Editorial Canvas", type: "Abstract Prints", location: "Master Bedroom", img: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=800" },
-  { name: "Gallery Hall", type: "Photography Series", location: "Luxury Hotel", img: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&q=80&w=800" },
+  { name: "Corporate Headquarters", type: "Dimensional Signage", location: "Bangalore", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
+  { name: "Retail Flagship", type: "Vinyl Window Displays", location: "Mumbai", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" },
+  { name: "Tech Park Event", type: "Large Format Banners", location: "Hyderabad", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" },
+  { name: "Exhibition Center", type: "Modular Fabric Stands", location: "New Delhi", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" },
 ];
 
 export default function PortfolioSection() {
@@ -20,9 +20,9 @@ export default function PortfolioSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-[#0099D4] text-[10px] tracking-[0.5em] uppercase font-black mb-4">Curated Inspirations</p>
+            <p className="text-[#0099D4] text-[10px] tracking-[0.5em] uppercase font-black mb-4">Latest Installations</p>
             <h2 className="text-[#0A2733] font-serif text-4xl md:text-7xl font-bold leading-tight">
-              Spaces That <span className="text-[#0077A8] italic font-medium">Breathe</span>
+              Impactful Brand <span className="text-[#0077A8] italic font-medium">Presence</span>
             </h2>
           </motion.div>
           <motion.div
@@ -34,7 +34,7 @@ export default function PortfolioSection() {
               href="/shop"
               className="inline-block bg-white border-2 border-[#0099D4] text-[#0099D4] px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-black hover:bg-[#0099D4] hover:text-white transition-all hover:scale-105 active:scale-95 shadow-lg shadow-slate-100"
             >
-              Shop The Gallery
+              View All Projects
             </Link>
           </motion.div>
         </div>

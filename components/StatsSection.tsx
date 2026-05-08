@@ -2,10 +2,10 @@
 import { motion } from "motion/react";
 
 const stats = [
-  { label: "Artworks Delivered", value: "12,000+" },
-  { label: "Global Artists", value: "450+" },
-  { label: "Happy Interiors", value: "8,500+" },
-  { label: "Craftsmanship Score", value: "9.9/10" }
+  { label: "Orders Delivered", value: "25,000+" },
+  { label: "Business Clients", value: "1,200+" },
+  { label: "Quality Checks", value: "100%" },
+  { label: "Customer Rating", value: "4.9/5.0" }
 ];
 
 export default function StatsSection() {
