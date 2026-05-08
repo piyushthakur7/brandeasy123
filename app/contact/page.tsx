@@ -70,19 +70,20 @@ export default function ContactPage() {
                     className="w-full border border-[#0099D4]/30 focus:border-[#0099D4] outline-none px-4 py-2.5 text-sm bg-[#F3FAFD] text-[#0A2733]"
                   >
                     <option value="">Select a service</option>
-                    <option>Bespoke Metal Art</option>
-                    <option>Custom Canvas Prints</option>
-                    <option>Wooden Wall Sculptures</option>
-                    <option>Gallery Wall Curation</option>
-                    <option>Bulk/Corporate Orders</option>
-                    <option>Interior Art Consultation</option>
+                    <option>Custom Banners</option>
+                    <option>Stands & Displays</option>
+                    <option>Table Covers</option>
+                    <option>Custom Flags</option>
+                    <option>Signs & Decals</option>
+                    <option>Marketing Materials</option>
+                    <option>Bulk Corporate Orders</option>
                   </select>
                 </div>
                 <div>
                   <label className="text-[#0A2733] text-xs font-semibold uppercase tracking-wider block mb-1.5">Message</label>
                   <textarea
                     rows={4}
-                    placeholder="Tell us about your art requirements..."
+                    placeholder="Tell us about your requirements..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full border border-[#0099D4]/30 focus:border-[#0099D4] outline-none px-4 py-2.5 text-sm bg-[#F3FAFD] text-[#0A2733] placeholder-[#6B9BB0] resize-none"
@@ -101,19 +102,19 @@ export default function ContactPage() {
           {/* Info */}
           <div className="space-y-6">
             <div className="maroon-floral-bg p-8 text-white">
-              <h3 className="text-[#2DB34A] font-serif text-2xl font-bold mb-5">Visit Our Studio</h3>
+              <h3 className="text-[#2DB34A] font-serif text-2xl font-bold mb-5">Our Location</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4 text-sm text-white/80">
                   <MapPin size={16} className="text-[#2DB34A] shrink-0 mt-0.5" />
-                  <span>Gallery Row, Art District,<br />Bangalore, KA 560001</span>
+                  <span>Ground Floor Darshan Apartment, Katargam Main Rd,<br />Opposite Katargam Bus Stop, Crystal Nagar,<br />Surat, Gujarat 395004, India</span>
                 </li>
                 <li className="flex items-center gap-4 text-sm text-white/80">
                   <Phone size={16} className="text-[#2DB34A] shrink-0" />
-                  <a href="tel:+919876543210" className="hover:text-[#2DB34A] transition-colors">+91 98765 43210</a>
+                  <a href="tel:+919000000000" className="hover:text-[#2DB34A] transition-colors">+91 90000 00000</a>
                 </li>
                 <li className="flex items-center gap-4 text-sm text-white/80">
                   <Mail size={16} className="text-[#2DB34A] shrink-0" />
-                  <a href="mailto:curator@brandeasyart.com" className="hover:text-[#2DB34A] transition-colors">curator@brandeasyart.com</a>
+                  <a href="mailto:hello@mediaconcept.in" className="hover:text-[#2DB34A] transition-colors">hello@mediaconcept.in</a>
                 </li>
                 <li className="flex items-center gap-4 text-sm text-white/80">
                   <Clock size={16} className="text-[#2DB34A] shrink-0" />
@@ -123,9 +124,9 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-white border border-[#0099D4]/25 p-6">
-              <h4 className="text-[#0A2733] font-semibold text-sm mb-3">The Art Experience</h4>
+              <h4 className="text-[#0A2733] font-semibold text-sm mb-3">Our Expertise</h4>
               <ul className="space-y-2">
-                {["Private gallery viewing available", "Expert art curators for home styling", "Custom sizes and material combinations", "White-glove international shipping", "Lifetime authenticity certificate"].map((p) => (
+                {["Customized solutions for business shops", "High-quality banner & signage printing", "Professional display stand manufacturing", "Fast turnaround & pan-India shipping", "Dedicated design support"].map((p) => (
                   <li key={p} className="flex items-center gap-2 text-xs text-[#2A5566]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#2DB34A] shrink-0" />
                     {p}

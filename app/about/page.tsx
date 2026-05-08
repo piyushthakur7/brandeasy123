@@ -2,11 +2,11 @@
 import { motion } from "motion/react";
 
 const timeline = [
-  { year: "2012", event: "Founded as a boutique workshop specializing in hand-carved wooden frames." },
-  { year: "2016", event: "Pioneered laser-cut metal architectural art for high-end hospitality projects." },
-  { year: "2019", event: "Opened our flagship digital gallery and expanded into fine art photography curation." },
-  { year: "2023", event: "Launched our global artisan network, collaborating with artists across 10 countries." },
-  { year: "2026", event: "Integrating generative AI to help clients visualize bespoke art in their own spaces." },
+  { year: "2012", event: "Founded as a small specialized printing unit in Surat, Gujarat." },
+  { year: "2016", event: "Expanded into high-quality outdoor signage and custom vinyl banners." },
+  { year: "2019", event: "Pioneered large-scale digital branding for retail and corporate spaces." },
+  { year: "2023", event: "Became a leading provider of comprehensive branding solutions across the region." },
+  { year: "2026", event: "Launching our next-gen digital design portal for automated business signage." },
 ];
 
 export default function AboutPage() {
@@ -20,7 +20,7 @@ export default function AboutPage() {
         >
           <p className="text-[#2DB34A] text-xs tracking-[0.4em] uppercase font-black mb-4">Curating Excellence</p>
           <h1 className="text-white font-serif text-5xl md:text-7xl font-bold">
-            About <span className="text-[#2DB34A] italic text-shadow-glow">Brand Easy Art</span>
+            About <span className="text-[#2DB34A] italic text-shadow-glow">Brand Easy</span>
           </h1>
         </motion.div>
       </div>
@@ -32,9 +32,9 @@ export default function AboutPage() {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
           >
-            <h2 className="text-[#0A2733] font-serif text-3xl md:text-5xl font-bold mb-8 italic leading-tight">Where Art Meets <br />Architectural Luxury</h2>
+            <h2 className="text-[#0A2733] font-serif text-3xl md:text-5xl font-bold mb-8 italic leading-tight">Where Branding Meets <br />High-Impact Results</h2>
             <p className="text-[#2A5566] text-lg leading-relaxed font-light mb-8 max-w-lg">
-              Brand Easy Art is a premier destination for high-end wall décor, specializing in museum-grade masterpieces that transform living spaces into personal galleries. Based in India with a global artistic vision, we blend industrial precision with artisan soul.
+              Brand Easy is a premier destination for high-end printing and branding solutions, specializing in museum-grade signage that transforms business spaces into professional identities. Based in Surat with a regional leadership, we blend technology with quality.
             </p>
             <div className="h-1.5 w-24 bg-[#2DB34A] rounded-full" />
           </motion.div>
@@ -47,7 +47,7 @@ export default function AboutPage() {
           >
             <div className="text-center p-12 group-hover:scale-110 transition-transform duration-500">
                <span className="block text-[#0A2733] font-serif text-9xl font-black italic opacity-10">14+</span>
-               <span className="block text-[#0099D4] font-black text-xs tracking-[0.2em] uppercase -mt-10">Years of Artistry</span>
+               <span className="block text-[#0099D4] font-black text-xs tracking-[0.2em] uppercase -mt-10">Years of Branding Excellence</span>
             </div>
           </motion.div>
         </div>

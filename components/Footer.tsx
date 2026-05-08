@@ -9,8 +9,12 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-serif font-black mb-8">Brand Easy</h3>
             <p className="text-white/60 text-lg max-w-md leading-relaxed mb-8">
-              Premium printing and branding solutions for businesses. High-quality banners, signs, and marketing materials.
+              We provide customized branding and signage for business shops. High-quality banners, signs, and marketing materials.
             </p>
+            <div className="space-y-2 mb-8">
+              <p className="text-white/40 text-xs">Ground Floor Darshan Apartment, Katargam Main Rd, Surat</p>
+              <p className="text-white/40 text-xs">hello@mediaconcept.in</p>
+            </div>
             <div className="flex gap-6">
                {/* Social placeholders */}
                <div className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 transition-colors" />
