@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function FloatingActions() {
   const [isHovered, setIsHovered] = useState(false);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919310011931";
 
   return (
     <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">

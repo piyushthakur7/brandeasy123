@@ -110,7 +110,7 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-center gap-4 text-sm text-white/80">
                   <Phone size={16} className="text-[#2DB34A] shrink-0" />
-                  <a href="tel:+919000000000" className="hover:text-[#2DB34A] transition-colors">+91 90000 00000</a>
+                  <a href="tel:+919310011931" className="hover:text-[#2DB34A] transition-colors">+91 93100 11931</a>
                 </li>
                 <li className="flex items-center gap-4 text-sm text-white/80">
                   <Mail size={16} className="text-[#2DB34A] shrink-0" />

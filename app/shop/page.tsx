@@ -232,7 +232,7 @@ export default function ShopPage() {
                           
                           <div className="mt-auto flex items-center gap-3">
                             <a 
-                              href={`https://wa.me/919000000000?text=${encodeURIComponent(`Hello, I'm interested in getting a quote for: ${product.title}\nPrice: ₹${product.price.toLocaleString()}\nLink: ${typeof window !== "undefined" ? window.location.origin : ""}/products/${product.id}`)}`}
+                              href={`https://wa.me/919310011931?text=${encodeURIComponent(`Hello, I'm interested in getting a quote for: ${product.title}\nPrice: ₹${product.price.toLocaleString()}\nLink: ${typeof window !== "undefined" ? window.location.origin : ""}/products/${product.id}`)}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex-1 bg-[#2DB34A] text-white py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#1F8A37] transition-colors flex items-center justify-center gap-2"
