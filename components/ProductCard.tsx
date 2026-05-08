@@ -22,13 +22,22 @@ export default function ProductCard({ product }: { product: Product }) {
         className="relative aspect-[4/5] overflow-hidden cursor-pointer bg-slate-50"
         onClick={() => router.push(`/products/${product.id}`)}
       >
-        <Image 
-          src={product.images[0]} 
-          alt={product.title} 
-          fill 
-          className="object-cover group-hover:scale-110 transition-transform duration-700"
-          referrerPolicy="no-referrer"
-        />
+        {product.images && product.images.length > 0 ? (
+          <Image 
+            src={product.images[0]} 
+            alt={product.title} 
+            fill 
+            className="object-cover group-hover:scale-110 transition-transform duration-700"
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
+             <div className="w-16 h-16 mb-2 opacity-20">
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+             </div>
+             <span className="text-[10px] font-black uppercase tracking-widest">Image Coming Soon</span>
+          </div>
+        )}
         
         {/* Hover Actions */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">

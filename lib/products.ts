@@ -33,10 +33,7 @@ export const products: Product[] = [
     price: 1299,
     category: "Banners",
     subcategory: "Vinyl Banners",
-    images: [
-      "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["3x6 ft", "4x8 ft", "5x10 ft", "Custom"],
     colors: ["Full Color Print"],
     material: "13oz Vinyl",
@@ -50,9 +47,7 @@ export const products: Product[] = [
     price: 1899,
     category: "Banners",
     subcategory: "Cloth/Fabric Banners",
-    images: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["3x5 ft", "4x6 ft", "5x8 ft"],
     colors: ["Full Color Print"],
     material: "Recycled Polyester Fabric",
@@ -66,9 +61,7 @@ export const products: Product[] = [
     price: 4500,
     category: "Banners",
     subcategory: "Event Banners",
-    images: [
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["6x8 ft", "8x8 ft", "8x10 ft"],
     colors: ["Full Color Print"],
     material: "Premium Matte Vinyl",
@@ -82,9 +75,7 @@ export const products: Product[] = [
     price: 1599,
     category: "Banners",
     subcategory: "Fence Banners",
-    images: [
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["3x6 ft", "4x8 ft", "Custom"],
     colors: ["Full Color Print"],
     material: "9oz Mesh Vinyl",
@@ -99,10 +90,7 @@ export const products: Product[] = [
     price: 3500,
     category: "Stands & Displays",
     subcategory: "Banner Stands",
-    images: [
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["33x80 in", "36x92 in", "47x80 in"],
     colors: ["Silver Base", "Black Base"],
     material: "Aluminum + Premium Vinyl Print",
@@ -116,9 +104,7 @@ export const products: Product[] = [
     price: 18500,
     category: "Stands & Displays",
     subcategory: "Trade Show Display Packages",
-    images: [
-      "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["8ft Curved", "10ft Curved", "10ft Straight"],
     colors: ["Full Color Print"],
     material: "Magnetic Frame + Fabric Panels",
@@ -132,9 +118,7 @@ export const products: Product[] = [
     price: 12000,
     category: "Stands & Displays",
     subcategory: "Canopy Tents",
-    images: [
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["10x10 ft", "10x15 ft", "10x20 ft"],
     colors: ["Full Color Print", "Solid Colors Available"],
     material: "600D Polyester + Steel Frame",
@@ -147,9 +131,7 @@ export const products: Product[] = [
     price: 7500,
     category: "Stands & Displays",
     subcategory: "Promotional Counters",
-    images: [
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["Standard (40x15x36 in)", "Wide (48x15x36 in)"],
     colors: ["Full Color Wrap"],
     material: "Lightweight Aluminum + Fabric Wrap",
@@ -164,9 +146,7 @@ export const products: Product[] = [
     price: 3200,
     category: "Table Covers & Displays",
     subcategory: "Fitted Table Covers",
-    images: [
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["4ft Table", "6ft Table", "8ft Table"],
     colors: ["Full Color Print", "Solid Color + Logo"],
     material: "Premium Polyester Knit",
@@ -180,9 +160,7 @@ export const products: Product[] = [
     price: 2800,
     category: "Table Covers & Displays",
     subcategory: "Stretch Table Covers",
-    images: [
-      "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["4ft Table", "6ft Table", "8ft Table"],
     colors: ["Full Color Print"],
     material: "4-Way Stretch Spandex",
@@ -195,9 +173,7 @@ export const products: Product[] = [
     price: 1500,
     category: "Table Covers & Displays",
     subcategory: "Table Runners & Toppers",
-    images: [
-      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["24x72 in", "30x72 in", "36x90 in"],
     colors: ["Full Color Print"],
     material: "Premium Polyester Twill",
@@ -212,9 +188,7 @@ export const products: Product[] = [
     price: 2500,
     category: "Custom Flags",
     subcategory: "Advertising Flags",
-    images: [
-      "https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["8ft (Small)", "11ft (Medium)", "15ft (Large)"],
     colors: ["Full Color Print"],
     material: "110gsm Knitted Polyester",
@@ -228,9 +202,7 @@ export const products: Product[] = [
     price: 2800,
     category: "Custom Flags",
     subcategory: "Advertising Flags",
-    images: [
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["7ft", "10ft", "14ft"],
     colors: ["Full Color Print"],
     material: "Knitted Polyester + Fiberglass Pole",
@@ -243,9 +215,7 @@ export const products: Product[] = [
     price: 800,
     category: "Custom Flags",
     subcategory: "Desk Flags",
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["4x6 in", "6x9 in"],
     colors: ["Full Color Print"],
     material: "Satin Fabric + Chrome Stand",
@@ -260,9 +230,7 @@ export const products: Product[] = [
     price: 3500,
     category: "Signs & Decals",
     subcategory: "Office Signs",
-    images: [
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["12x18 in", "18x24 in", "24x36 in"],
     colors: ["Clear", "Frosted", "Black"],
     material: "5mm Premium Acrylic",
@@ -276,9 +244,7 @@ export const products: Product[] = [
     price: 999,
     category: "Signs & Decals",
     subcategory: "Floor Decals",
-    images: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["12 in Round", "18 in Round", "24x36 in Rectangle"],
     colors: ["Full Color Print"],
     material: "Anti-Slip Vinyl with Lamination",
@@ -291,9 +257,7 @@ export const products: Product[] = [
     price: 15000,
     category: "Signs & Decals",
     subcategory: "Vehicle Wraps",
-    images: [
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["Partial Wrap", "Half Wrap", "Full Wrap"],
     colors: ["Full Color Print"],
     material: "3M Premium Cast Vinyl",
@@ -308,9 +272,7 @@ export const products: Product[] = [
     price: 45,
     category: "Asset Tags",
     subcategory: "Metal Asset Tags",
-    images: [
-      "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["1x3 in", "1.5x3 in", "2x4 in"],
     colors: ["Silver", "Black", "Blue"],
     material: "Anodized Aluminium",
@@ -324,9 +286,7 @@ export const products: Product[] = [
     price: 35,
     category: "Asset Tags",
     subcategory: "QR Asset Tags",
-    images: [
-      "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["1x1 in", "1.5x1.5 in", "2x2 in"],
     colors: ["White", "Silver"],
     material: "Polyester with Lamination",
@@ -339,9 +299,7 @@ export const products: Product[] = [
     price: 25,
     category: "Asset Tags",
     subcategory: "Security Labels",
-    images: [
-      "https://images.unsplash.com/photo-1586953208270-767889fa9b08?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["0.75x1.5 in", "1x2 in", "1.5x3 in"],
     colors: ["Silver", "Red", "Blue"],
     material: "Tamper-Proof Polyester",
@@ -356,9 +314,7 @@ export const products: Product[] = [
     price: 999,
     category: "Marketing Materials",
     subcategory: "Business Cards",
-    images: [
-      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["3.5x2 in Standard", "3.5x2 in Rounded", "Square 2.5x2.5 in"],
     colors: ["Full Color + Foil"],
     material: "400gsm Silk Laminated Card",
@@ -372,9 +328,7 @@ export const products: Product[] = [
     price: 2500,
     category: "Marketing Materials",
     subcategory: "Brochures & Flyers",
-    images: [
-      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["A4 Tri-Fold", "A3 Bi-Fold", "DL Size"],
     colors: ["Full Color Both Sides"],
     material: "170gsm Art Paper",
@@ -387,9 +341,7 @@ export const products: Product[] = [
     price: 599,
     category: "Marketing Materials",
     subcategory: "Stickers & Labels",
-    images: [
-      "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["2x2 in", "3x3 in", "Custom Die-Cut"],
     colors: ["Full Color Print"],
     material: "Premium Vinyl with Lamination",
@@ -404,9 +356,7 @@ export const products: Product[] = [
     price: 499,
     category: "Accessories",
     subcategory: "Hardware Kits",
-    images: [
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["Standard Kit", "Pro Kit"],
     colors: ["Silver"],
     material: "Stainless Steel & Nylon",
@@ -419,9 +369,7 @@ export const products: Product[] = [
     price: 899,
     category: "Accessories",
     subcategory: "Flag Accessories",
-    images: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["Standard", "Heavy Duty"],
     colors: ["Black"],
     material: "Steel Cross Base + PVC Water Bag",
@@ -434,9 +382,7 @@ export const products: Product[] = [
     price: 1200,
     category: "Accessories",
     subcategory: "Display Lighting",
-    images: [
-      "https://images.unsplash.com/photo-1565814329452-e1462d862baa?auto=format&fit=crop&q=80&w=800"
-    ],
+    images: [],
     sizes: ["Single Head", "Double Head", "Triple Head"],
     colors: ["Silver", "Black"],
     material: "Aluminium + LED",

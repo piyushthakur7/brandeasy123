@@ -142,12 +142,21 @@ export default function ShopPage() {
                       <div className={`group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 h-full ${viewMode === "list" ? "flex flex-col md:flex-row" : ""}`}>
                         {/* Image Container */}
                         <div className={`relative overflow-hidden bg-slate-100 ${viewMode === "list" ? "md:w-64 shrink-0 h-64 md:h-auto" : "aspect-[4/5]"}`}>
-                          <Image 
-                            src={product.images[0]} 
-                            alt={product.title} 
-                            fill 
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
+                          {product.images && product.images.length > 0 ? (
+                            <Image 
+                              src={product.images[0]} 
+                              alt={product.title} 
+                              fill 
+                              className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
+                               <div className="w-12 h-12 mb-2 opacity-20">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                               </div>
+                               <span className="text-[10px] font-black uppercase tracking-widest">Image Coming Soon</span>
+                            </div>
+                          )}
                           <div className="absolute top-4 right-4 flex flex-col gap-2 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">
                             <button className="p-2.5 bg-white/90 backdrop-blur rounded-full text-[#0A2733] hover:text-[#2DB34A] shadow-lg transition-colors">
                               <Heart size={18} />

@@ -59,13 +59,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   exit={{ opacity: 0 }}
                   className="absolute inset-0"
                 >
-                  <Image 
-                    src={product.images[selectedImage]} 
-                    alt={product.title} 
-                    fill 
-                    className="object-cover"
-                    priority
-                  />
+                  {product.images && product.images.length > 0 ? (
+                    <Image 
+                      src={product.images[selectedImage]} 
+                      alt={product.title} 
+                      fill 
+                      className="object-cover"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
+                      <div className="w-24 h-24 mb-4 opacity-20">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                      </div>
+                      <span className="text-sm font-black uppercase tracking-[0.2em]">Image Coming Soon</span>
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -227,7 +236,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               {relatedProducts.map((rp) => (
                 <Link key={rp.id} href={`/products/${rp.id}`} className="group">
                   <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-slate-50">
-                    <Image src={rp.images[0]} alt={rp.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                    {rp.images && rp.images.length > 0 ? (
+                      <Image src={rp.images[0]} alt={rp.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
+                        <div className="w-12 h-12 mb-2 opacity-20">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <span className="text-[8px] font-black uppercase tracking-widest">Image Coming Soon</span>
+                      </div>
+                    )}
                   </div>
                   <h3 className="font-serif font-bold text-[#0A2733] group-hover:text-[#2DB34A] transition-colors">{rp.title}</h3>
                   <span className="text-xs font-black text-[#0099D4]">₹{rp.price.toLocaleString()}</span>
