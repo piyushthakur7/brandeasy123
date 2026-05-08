@@ -677,46 +677,147 @@ export const products: Product[] = [
     features: ["Wind-vented", "UV Protected"]
   },
 
-  // ─── TABLE COVERS & DISPLAYS ───
+  // ─── TABLE COVERS & DISPLAYS: PREMIUM TABLE COVERS ───
   {
-    id: "table-01",
-    title: "Premium Fitted Table Cover",
-    description: "Custom printed 4-sided fitted table cover with full-color branding. Wrinkle-resistant fabric gives a polished, professional look.",
+    id: "table-pr-01",
+    title: "Premium Full Color Table Throw",
+    description: "High-end polyester table throw with vibrant dye-sublimation printing. Covers all 4 sides for a professional look.",
     price: 3200,
     category: "Table Covers & Displays",
-    subcategory: "Fitted Table Covers",
+    subcategory: "Premium Table Covers",
     images: [],
-    sizes: ["4ft Table", "6ft Table", "8ft Table"],
-    colors: ["Full Color Print", "Solid Color + Logo"],
-    material: "Premium Polyester Knit",
-    features: ["Machine Washable", "Wrinkle Free", "Open Back Option", "Flame Retardant"],
+    sizes: ["6ft", "8ft"],
+    colors: ["Full Color"],
+    material: "Premium 300D Polyester",
+    features: ["Dye-sublimation Print", "Wrinkle Resistant", "Flame Retardant"],
     isFeatured: true
   },
   {
-    id: "table-02",
-    title: "Stretch Table Cover",
-    description: "Sleek spandex stretch table cover with custom printing. Fits snugly for a modern, clean presentation at any event.",
-    price: 2800,
+    id: "table-pr-02",
+    title: "Convertible Table Cover",
+    description: "Smart design that adjusts to fit both 6ft and 8ft tables. Versatile solution for varying event spaces.",
+    price: 3800,
+    category: "Table Covers & Displays",
+    subcategory: "Premium Table Covers",
+    images: [],
+    sizes: ["6ft to 8ft Adjustable"],
+    colors: ["Full Color"],
+    material: "Premium Polyester",
+    features: ["Adjustable Hook & Loop", "All-in-one Solution"]
+  },
+
+  // ─── TABLE COVERS & DISPLAYS: STRETCH TABLE COVERS ───
+  {
+    id: "table-st-01",
+    title: "Round Stretch Table Cover",
+    description: "Form-fitting spandex cover for high-boy or standard round tables. Creates a modern, sleek silhouette.",
+    price: 2500,
     category: "Table Covers & Displays",
     subcategory: "Stretch Table Covers",
     images: [],
-    sizes: ["4ft Table", "6ft Table", "8ft Table"],
-    colors: ["Full Color Print"],
+    sizes: ["30in Round", "42in Round"],
+    colors: ["Full Color"],
     material: "4-Way Stretch Spandex",
-    features: ["Snug Fit", "Machine Washable", "Foot Pockets", "Dye-Sublimation Print"]
+    features: ["Reinforced Foot Pockets", "Machine Washable"]
   },
   {
-    id: "table-03",
-    title: "Custom Table Runner",
-    description: "Branded table runner with your logo and messaging. Drapes beautifully over standard table covers for layered branding.",
+    id: "table-st-02",
+    title: "Cross Over Table Cover",
+    description: "Unique design that allows you to mix and match colors or expose the table base. Modern and artistic.",
+    price: 2900,
+    category: "Table Covers & Displays",
+    subcategory: "Stretch Table Covers",
+    images: [],
+    sizes: ["6ft", "8ft"],
+    colors: ["Full Color"],
+    material: "Stretch Spandex",
+    features: ["Easy Install", "Dynamic Look"]
+  },
+
+  // ─── TABLE COVERS & DISPLAYS: TABLE TOP DISPLAYS ───
+  {
+    id: "table-td-01",
+    title: "Mini X Table Top Display",
+    description: "Compact X-frame stand for desks and counters. Perfect for menus, registration desks, and checkouts.",
+    price: 650,
+    category: "Table Covers & Displays",
+    subcategory: "Table Top Displays",
+    images: [],
+    sizes: ["11x17 in"],
+    colors: ["Black"],
+    material: "Lightweight Plastic / Carbon Fiber",
+    features: ["Desktop Size", "Quick Graphics Change"]
+  },
+  {
+    id: "table-td-02",
+    title: "Countertop Sneeze Guard",
+    description: "Professional clear acrylic partition for customer interactions. Ensures safety without blocking visibility.",
+    price: 2500,
+    category: "Table Covers & Displays",
+    subcategory: "Table Top Displays",
+    images: [],
+    sizes: ["24x24 in", "30x30 in"],
+    colors: ["Clear"],
+    material: "5mm Premium Acrylic",
+    features: ["Pass-through Opening", "Stable Base"]
+  },
+
+  // ─── TABLE COVERS & DISPLAYS: BLANK TABLE COVERS ───
+  {
+    id: "table-bl-01",
+    title: "Single Color Table Throw",
+    description: "Simple and professional solid-color table covers. High-quality fabric at a budget-friendly price point.",
     price: 1500,
     category: "Table Covers & Displays",
-    subcategory: "Table Runners & Toppers",
+    subcategory: "Blank Table Covers",
     images: [],
-    sizes: ["24x72 in", "30x72 in", "36x90 in"],
-    colors: ["Full Color Print"],
-    material: "Premium Polyester Twill",
-    features: ["Double-Sided Print", "Hemmed Edges", "Vibrant Colors", "Compact Fold"]
+    sizes: ["6ft", "8ft"],
+    colors: ["White", "Black", "Blue", "Red"],
+    material: "Durable Polyester",
+    features: ["Cost Effective", "Durable"]
+  },
+
+  // ─── TABLE COVERS & DISPLAYS: FITTED TABLE COVERS ───
+  {
+    id: "table-ft-01",
+    title: "Open Corner Fitted Table Cover",
+    description: "Fitted cover with open corners for easy access to items stored under the table. Clean and functional.",
+    price: 2800,
+    category: "Table Covers & Displays",
+    subcategory: "Fitted Table Covers",
+    images: [],
+    sizes: ["6ft", "8ft"],
+    colors: ["Full Color"],
+    material: "Premium Polyester",
+    features: ["Easy Storage Access", "Tailored Look"]
+  },
+  {
+    id: "table-ft-02",
+    title: "Pleated Table Cover",
+    description: "Classic pleated design for a traditional, elegant banquet look. High-quality draping for formal events.",
+    price: 3500,
+    category: "Table Covers & Displays",
+    subcategory: "Fitted Table Covers",
+    images: [],
+    sizes: ["6ft", "8ft"],
+    colors: ["White", "Black", "Ivory"],
+    material: "Premium Table Twill",
+    features: ["Traditional Pleats", "Elegant Draping"]
+  },
+
+  // ─── TABLE COVERS & DISPLAYS: CHAIR COVERS ───
+  {
+    id: "table-ch-01",
+    title: "Banquet Chair Cover",
+    description: "Custom or standard stretch chair covers. Transform ordinary chairs into branded or elegant event seating.",
+    price: 450,
+    category: "Table Covers & Displays",
+    subcategory: "Banquet Chair Covers",
+    images: [],
+    sizes: ["Standard Banquet"],
+    colors: ["White", "Black", "Custom Print"],
+    material: "Stretch Spandex",
+    features: ["Snug Fit", "Easy Install"]
   },
 
   // ─── CUSTOM FLAGS ───
