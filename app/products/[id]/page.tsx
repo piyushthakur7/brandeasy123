@@ -1,260 +1,387 @@
 "use client";
 import { use, useState, useMemo } from "react";
 import { products } from "@/lib/products";
-import { ChevronRight, Star, Truck, ShieldCheck, RefreshCw, Heart, Share2, MessageCircle } from "lucide-react";
+import { ChevronRight, Star, Share2, MessageCircle, Monitor, Clock, Award, CloudRain, Mic, Camera, Video, Plus, Minus, Truck } from "lucide-react";
 import { getWhatsAppQuoteLink } from "@/lib/whatsapp";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+// Mock data for variants
+const MOCK_VARIANTS = [
+  { id: "hand", label: "Hand Flags", img: "/images/products/vinyl_banner.png" },
+  { id: "rect", label: "Rectangle Flags", img: "/images/products/step_and_repeat.png" },
+  { id: "pers", label: "Personalized Flags", img: "/images/products/event_canopy.png" },
+  { id: "feather", label: "Feather Flag - Mesh", img: "/images/products/popup_display.png" }
+];
+
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const product = products.find((p) => p.id === resolvedParams.id);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0] || "");
-  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || "");
+  const [selectedType, setSelectedType] = useState(MOCK_VARIANTS[0].id);
+  const [pantone, setPantone] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [quantity, setQuantity] = useState(51);
 
   if (!product) return notFound();
-
-  const whatsappQuoteLink = useMemo(() => {
-    return getWhatsAppQuoteLink(product.title, product.price, {
-      size: selectedSize,
-      color: selectedColor,
-      url: typeof window !== "undefined" ? window.location.href : ""
-    });
-  }, [product, selectedSize, selectedColor]);
 
   // Related products from the same category
   const relatedProducts = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
+  const getDiscountedPrice = (qty: number) => {
+    let discount = 0;
+    if (qty >= 250) discount = 0.25;
+    else if (qty >= 100) discount = 0.22;
+    else if (qty >= 50) discount = 0.20;
+    else if (qty >= 10) discount = 0.15;
+    else if (qty >= 2) discount = 0.12;
+    return product.price * (1 - discount);
+  };
+
+  const currentPrice = getDiscountedPrice(quantity);
+  const originalPrice = product.price;
+  const currentDiscountPercent = quantity >= 250 ? 25 : quantity >= 100 ? 22 : quantity >= 50 ? 20 : quantity >= 10 ? 15 : quantity >= 2 ? 12 : 0;
+
+  const handleQuantityChange = (delta: number) => {
+    setQuantity(prev => Math.max(1, prev + delta));
+  };
+
   return (
-    <div className="min-h-screen pt-24 pb-20 bg-white">
+    <div className="min-h-screen pt-24 pb-40 bg-[#F8FAFC]">
       {/* Breadcrumbs */}
-      <div className="bg-slate-50 py-4 mb-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <nav className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400">
-            <Link href="/" className="hover:text-[#2DB34A] transition-colors">Home</Link>
-            <ChevronRight size={12} />
-            <Link href="/shop" className="hover:text-[#2DB34A] transition-colors">Shop</Link>
-            <ChevronRight size={12} />
-            <span className="text-[#0A2733]">{product.category}</span>
+      <div className="bg-white py-4 mb-8 border-b border-slate-100">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+          <nav className="flex items-center gap-3 text-xs font-medium text-slate-500">
+            <Link href="/" className="hover:text-[#00AEEF] transition-colors">Home</Link>
+            <ChevronRight size={14} />
+            <Link href="/shop" className="hover:text-[#00AEEF] transition-colors">Custom Flags</Link>
+            <ChevronRight size={14} />
+            <span className="text-slate-400">Advertising Flags</span>
+            <ChevronRight size={14} />
+            <span className="text-[#00AEEF]">{product.title}</span>
           </nav>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Visuals */}
-          <div className="space-y-6">
-            <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden bg-slate-50 shadow-2xl">
+          {/* Visuals - Left Column (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="relative aspect-square w-full bg-white border border-slate-200">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedImage}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0"
+                  className="absolute inset-0 p-8 flex items-center justify-center"
                 >
                   {product.images && product.images.length > 0 ? (
                     <Image 
                       src={product.images[selectedImage]} 
                       alt={product.title} 
                       fill 
-                      className="object-cover"
+                      className="object-contain p-4"
                       priority
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
-                      <div className="w-24 h-24 mb-4 opacity-20">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                      </div>
-                      <span className="text-sm font-black uppercase tracking-[0.2em]">Image Coming Soon</span>
+                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-300">
+                      <Image src="/images/products/vinyl_banner.png" alt="mock" fill className="object-contain p-4" />
                     </div>
                   )}
                 </motion.div>
               </AnimatePresence>
             </div>
             
-            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            {/* Thumbnails */}
+            <div 
+              className="flex gap-4 overflow-x-auto pb-2" 
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <style jsx>{`
+                div::-webkit-scrollbar { display: none; }
+              `}</style>
               {product.images.map((img, i) => (
                 <button 
                   key={i}
                   onClick={() => setSelectedImage(i)}
-                  className={`relative w-24 aspect-[4/5] rounded-xl overflow-hidden border-2 shrink-0 transition-all ${selectedImage === i ? "border-[#2DB34A] scale-105 shadow-lg" : "border-transparent opacity-60 hover:opacity-100"}`}
+                  className={`relative w-24 aspect-square bg-white border shrink-0 transition-all ${selectedImage === i ? "border-[#00AEEF]" : "border-slate-200 hover:border-[#00AEEF]/50"}`}
                 >
-                  <Image src={img} alt={`Preview ${i}`} fill className="object-cover" />
+                  <Image src={img} alt={`Preview ${i}`} fill className="object-cover p-1" />
+                </button>
+              ))}
+              {/* Mock extra thumbnails just for visual matching */}
+              {[1,2,3,4,5].map((_, i) => (
+                <button key={`mock-${i}`} className={`relative w-24 aspect-square bg-white border shrink-0 transition-all border-slate-200 hover:border-[#00AEEF]/50`}>
+                   <Image src="/images/products/vinyl_banner.png" alt="Preview mock" fill className="object-cover p-1 opacity-50" />
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Core Info */}
-          <div className="flex flex-col">
-            <div className="mb-8">
-              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#0099D4] mb-4">
-                <span>{product.subcategory}</span>
-                <span className="w-1 h-1 bg-slate-300 rounded-full" />
-                <div className="flex items-center gap-1.5 text-yellow-500">
-                  <Star size={10} fill="currentColor" />
-                  <Star size={10} fill="currentColor" />
-                  <Star size={10} fill="currentColor" />
-                  <Star size={10} fill="currentColor" />
-                  <Star size={10} fill="currentColor" className="opacity-30" />
-                  <span className="text-slate-400 font-bold ml-1 font-sans">4.0 (12 Reviews)</span>
-                </div>
+          {/* Details - Right Column (7 cols) */}
+          <div className="lg:col-span-7 bg-white p-8 border border-slate-200">
+            {/* Header section */}
+            <div className="mb-6">
+              <h1 className="text-3xl font-bold text-slate-900 mb-2">{product.title}</h1>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-6">
+                <a href="#reviews" className="underline hover:text-[#00AEEF]">Write a Review</a>
+                <span className="text-slate-300">|</span>
+                <a href="#specs" className="underline hover:text-[#00AEEF]">Product Specification</a>
+                <span className="text-slate-300">|</span>
+                <span>SKU: <span className="font-medium text-slate-800">BBCFMHF</span></span>
+                <span className="text-slate-300">|</span>
+                <button className="hover:text-[#00AEEF]"><Share2 size={16} /></button>
               </div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#0A2733] mb-4 leading-tight">{product.title}</h1>
-              <p className="text-slate-500 text-lg font-light leading-relaxed mb-6">{product.description}</p>
               
-              <div className="flex items-baseline gap-4 mb-4">
-                <span className="text-4xl font-black text-[#0A2733]">₹{product.price.toLocaleString()}</span>
-                <span className="text-slate-400 line-through text-lg">₹{(product.price * 1.25).toLocaleString()}</span>
-                <div className="bg-red-50 text-red-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">20% OFF</div>
+              <div className="inline-flex items-center gap-2 bg-[#FFF8E7] text-[#B8860B] px-4 py-2 text-sm border border-[#F5DEB3]">
+                <Truck size={16} />
+                <span>Standard by <strong>22 May, Friday</strong></span>
               </div>
-              <p className="text-[#2DB34A] text-xs font-bold tracking-widest uppercase">✦ In Stock — Ships within 3-5 business days</p>
             </div>
 
-            {/* Options */}
-            <div className="space-y-8 mb-10 border-y border-slate-100 py-8">
-              <div>
-                <div className="flex justify-between items-center mb-4">
-                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-[#0A2733]">Select Size (Inches)</label>
-                  <button className="text-[10px] text-[#0099D4] font-bold uppercase tracking-widest underline underline-offset-4">Size Guide</button>
+            {/* Features Row */}
+            <div className="grid grid-cols-4 gap-4 py-6 border-y border-slate-100 mb-8">
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-14 h-14 rounded-full border border-[#00AEEF]/20 flex items-center justify-center text-[#00AEEF] bg-[#F0F9FF]">
+                  <Monitor size={24} />
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {product.sizes.map((size) => (
+                <span className="text-xs text-slate-600 font-medium">Custom Design</span>
+              </div>
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-14 h-14 rounded-full border border-[#00AEEF]/20 flex items-center justify-center text-[#00AEEF] bg-[#F0F9FF]">
+                  <Clock size={24} />
+                </div>
+                <span className="text-xs text-slate-600 font-medium">Fast Turnaround</span>
+              </div>
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-14 h-14 rounded-full border border-[#00AEEF]/20 flex items-center justify-center text-[#00AEEF] bg-[#F0F9FF]">
+                  <Award size={24} />
+                </div>
+                <span className="text-xs text-slate-600 font-medium">Premium Quality</span>
+              </div>
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-14 h-14 rounded-full border border-[#00AEEF]/20 flex items-center justify-center text-[#00AEEF] bg-[#F0F9FF]">
+                  <CloudRain size={24} />
+                </div>
+                <span className="text-xs text-slate-600 font-medium">Weatherproof</span>
+              </div>
+            </div>
+
+            {/* Flag Type */}
+            <div className="mb-8">
+              <label className="block text-sm font-semibold text-slate-800 mb-4">Flag Type</label>
+              <div className="flex flex-wrap gap-4">
+                {MOCK_VARIANTS.map((v) => (
+                  <button 
+                    key={v.id}
+                    onClick={() => setSelectedType(v.id)}
+                    className={`flex flex-col items-center p-2 border rounded-md transition-all w-[120px] ${selectedType === v.id ? "border-[#00AEEF] shadow-sm ring-1 ring-[#00AEEF]" : "border-slate-200 hover:border-[#00AEEF]/50"}`}
+                  >
+                    <div className="relative w-full aspect-[4/3] mb-2 bg-slate-50">
+                      <Image src={v.img} alt={v.label} fill className="object-contain p-2" />
+                    </div>
+                    <span className="text-[11px] text-center text-slate-600">{v.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Size Select */}
+            <div className="mb-8">
+              <label className="block text-sm font-semibold text-slate-800 mb-4">Size (W X H)</label>
+              <div className="border border-slate-200 rounded-t-md border-b-0 inline-block px-6 py-2 text-[#00AEEF] text-sm font-medium border-b-2 border-b-white relative top-[2px] bg-white z-10">
+                Popular Sizes
+              </div>
+              <div className="border border-slate-200 p-6 rounded-md rounded-tl-none bg-white">
+                <div className="flex flex-wrap gap-4">
+                  {product.sizes.map((size, idx) => (
                     <button 
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`px-6 py-3 rounded-xl text-xs font-bold border-2 transition-all ${selectedSize === size ? "bg-[#0A2733] text-white border-[#0A2733] shadow-lg scale-105" : "border-slate-100 text-slate-500 hover:border-[#2DB34A]/30"}`}
+                      className={`relative px-4 py-2 text-sm border rounded transition-all ${selectedSize === size ? "border-[#00AEEF] text-[#00AEEF]" : "border-slate-200 text-slate-600 hover:border-[#00AEEF]/50"}`}
                     >
+                      {idx === 0 && (
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#39B54A] text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">
+                          Preferred
+                        </div>
+                      )}
                       {size}
                     </button>
                   ))}
+                  {/* Mock extra sizes to match screenshot */}
+                  <button className={`px-4 py-2 text-sm border border-slate-200 rounded text-slate-600 hover:border-[#00AEEF]/50`}>12 Inch x 8 Inch</button>
+                  <button className={`px-4 py-2 text-sm border border-slate-200 rounded text-slate-600 hover:border-[#00AEEF]/50`}>18 Inch x 12 Inch</button>
+                  <button className={`px-4 py-2 text-sm border border-slate-200 rounded text-slate-600 hover:border-[#00AEEF]/50`}>36 Inch x 24 Inch</button>
                 </div>
               </div>
+              <div className="mt-3 text-xs text-slate-500">
+                Download the Design guideline: <a href="#" className="text-[#00AEEF] underline">Download Template</a>
+              </div>
+            </div>
 
+            {/* Pantone */}
+            <div className="mb-8">
+              <label className="flex items-center gap-2 text-sm font-semibold text-slate-800 mb-3">
+                Pantone + Color Bridge Coated (optional)
+                <span className="w-4 h-4 rounded border border-slate-300 text-slate-400 inline-flex items-center justify-center text-[10px]">?</span>
+              </label>
+              <input 
+                type="text" 
+                value={pantone}
+                onChange={(e) => setPantone(e.target.value)}
+                className="w-full border border-slate-300 rounded p-3 text-sm focus:outline-none focus:border-[#00AEEF]"
+              />
+            </div>
+
+            {/* Specific Instructions */}
+            <div className="mb-8 bg-slate-50/50 p-6 border border-slate-100">
+              <label className="block text-sm font-semibold text-slate-800 mb-3">Specific Instructions (Optional)</label>
+              <textarea 
+                rows={4}
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
+                className="w-full border border-slate-300 rounded p-3 text-sm focus:outline-none focus:border-[#00AEEF] mb-2"
+              ></textarea>
+              <p className="text-xs text-slate-500 mb-3">You can now use voice notes to add your comment</p>
+              <button className="flex items-center gap-2 text-sm text-slate-700 hover:text-[#00AEEF] transition-colors">
+                <Mic size={16} />
+                <span className="underline">Add a Voice note</span>
+              </button>
+            </div>
+
+            {/* Print Side */}
+            <div className="mb-8 flex items-center gap-4">
+              <span className="text-sm font-semibold text-slate-800">Print Side</span>
+              <span className="text-sm text-slate-600">Single</span>
+              <span className="w-4 h-4 rounded border border-slate-300 text-slate-400 inline-flex items-center justify-center text-[10px]">?</span>
+            </div>
+
+            {/* Quantity Discount */}
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-slate-800 mb-4">Save Big! Buy More. (Quantity Discount)</h3>
+              <div className="flex gap-4 overflow-x-auto pb-4">
+                {[
+                  { min: "Min 2", price: (product.price * 0.88).toFixed(2), save: "12%" },
+                  { min: "10 +", price: (product.price * 0.85).toFixed(2), save: "15%" },
+                  { min: "50 +", price: (product.price * 0.80).toFixed(2), save: "20%", active: quantity >= 50 && quantity < 100 },
+                  { min: "100 +", price: (product.price * 0.78).toFixed(2), save: "22%", active: quantity >= 100 && quantity < 250 },
+                  { min: "250 +", price: (product.price * 0.75).toFixed(2), save: "25%", active: quantity >= 250 }
+                ].map((tier, i) => (
+                  <button 
+                    key={i} 
+                    onClick={() => {
+                      const baseQty = parseInt(tier.min.replace(/[^0-9]/g, ''));
+                      setQuantity(baseQty);
+                    }}
+                    className={`flex-shrink-0 flex flex-col items-center justify-center p-4 border w-[130px] bg-white transition-all ${tier.active ? "border-[#00AEEF] ring-1 ring-[#00AEEF]" : "border-slate-200 hover:border-[#00AEEF]/50"}`}
+                  >
+                    <span className="text-sm text-slate-700 mb-1">{tier.min} for</span>
+                    <span className="text-sm font-bold text-slate-900 mb-3">₹{tier.price} /unit</span>
+                    <span className="text-[10px] bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Save {tier.save}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Customer Reviews Section */}
+        <div id="reviews" className="mt-16 bg-white p-8 border border-slate-200">
+          <div className="flex justify-between items-center mb-8 border-b border-slate-100 pb-4">
+            <h2 className="text-xl font-bold text-slate-900">Customer Reviews</h2>
+            <button className="bg-[#00AEEF] text-white px-6 py-2 text-sm font-medium hover:bg-[#0099D4] transition-colors">
+              Write a Review
+            </button>
+          </div>
+
+          <div className="max-w-3xl">
+            <div className="flex items-start gap-6 mb-8">
+              <div className="relative w-24 h-16 bg-orange-100 flex-shrink-0">
+                 {product.images && product.images[0] && <Image src={product.images[0]} alt="product" fill className="object-cover" />}
+              </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-[0.3em] text-[#0A2733] mb-4">Finish / Color</label>
-                <div className="flex flex-wrap gap-3">
-                  {product.colors.map((color) => (
-                    <button 
-                      key={color}
-                      onClick={() => setSelectedColor(color)}
-                      className={`px-6 py-3 rounded-xl text-xs font-bold border-2 transition-all ${selectedColor === color ? "bg-[#2DB34A] text-white border-[#2DB34A] shadow-lg scale-105" : "border-slate-100 text-slate-500 hover:border-[#2DB34A]/30"}`}
-                    >
-                      {color}
-                    </button>
-                  ))}
-                </div>
+                <h3 className="font-bold text-slate-900 text-[#003B5C]">Review this product</h3>
+                <p className="text-sm text-slate-500 mt-1">{product.title}</p>
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a 
-                href={whatsappQuoteLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-[#2DB34A] text-white py-5 rounded-2xl flex items-center justify-center gap-3 text-xs font-black uppercase tracking-[0.3em] hover:bg-[#1F8A37] transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-slate-200"
-              >
-                <MessageCircle size={18} />
-                Get a Quote
-              </a>
-              <div className="flex gap-4">
-                <button className="p-5 border-2 border-slate-100 rounded-2xl text-[#0A2733] hover:bg-slate-50 transition-colors">
-                  <Heart size={20} />
-                </button>
-                <button className="p-5 border-2 border-slate-100 rounded-2xl text-[#0A2733] hover:bg-slate-50 transition-colors">
-                  <Share2 size={20} />
-                </button>
-              </div>
+            <div className="flex gap-1 text-slate-200 mb-6 items-center">
+              {[1,2,3,4,5].map(i => <Star key={i} size={20} fill="currentColor" />)}
+              <span className="text-sm text-slate-500 ml-2">Click stars to rate</span>
             </div>
 
-            {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-50 rounded-3xl border border-slate-100">
-              <div className="flex flex-col items-center text-center gap-2">
-                <Truck size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Fast Shipping</span>
+            <form className="space-y-4">
+              <input type="text" placeholder="Title of your Review" className="w-full border border-slate-200 p-3 text-sm focus:outline-none focus:border-[#00AEEF]" />
+              <textarea placeholder="Your review" rows={4} className="w-full border border-slate-200 p-3 text-sm focus:outline-none focus:border-[#00AEEF]"></textarea>
+              <input type="text" placeholder="Full name" className="w-full border border-slate-200 p-3 text-sm focus:outline-none focus:border-[#00AEEF]" />
+              <input type="email" placeholder="Your email" className="w-full border border-slate-200 p-3 text-sm focus:outline-none focus:border-[#00AEEF]" />
+              
+              <div className="flex gap-4 pt-2">
+                <button type="button" className="w-24 h-24 border border-slate-200 bg-slate-50 flex flex-col items-center justify-center gap-2 text-slate-400 hover:text-[#00AEEF] transition-colors">
+                  <Camera size={32} />
+                  <span className="text-[10px] bg-slate-400 text-white px-2 py-0.5 rounded-sm">upload photo</span>
+                </button>
+                <button type="button" className="w-24 h-24 border border-slate-200 bg-slate-50 flex flex-col items-center justify-center gap-2 text-slate-400 hover:text-[#00AEEF] transition-colors">
+                  <Video size={32} />
+                  <span className="text-[10px] bg-slate-400 text-white px-2 py-0.5 rounded-sm">upload video</span>
+                </button>
               </div>
-              <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
-                <ShieldCheck size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Premium Quality</span>
+
+              <div className="flex justify-end gap-2 pt-6">
+                <button type="button" className="px-8 py-2 bg-slate-400 text-white text-sm hover:bg-slate-500 transition-colors">Cancel</button>
+                <button type="submit" className="px-8 py-2 bg-[#00AEEF] text-white text-sm hover:bg-[#0099D4] transition-colors">Submit</button>
               </div>
-              <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
-                <RefreshCw size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Easy Returns</span>
-              </div>
-              <div className="flex flex-col items-center text-center gap-2 border-l border-slate-200">
-                <Star size={20} className="text-[#0099D4]" />
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#0A2733]">Bulk Discounts</span>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
 
-        {/* Description & Technical */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24 py-16 border-y border-slate-100">
-          <div className="md:col-span-2 space-y-8">
-            <h2 className="text-3xl font-serif font-bold text-[#0A2733]">Product Details & Specifications</h2>
-            <div className="prose prose-slate max-w-none text-[#2A5566] leading-relaxed font-light">
-              <p>The {product.title} is crafted with <strong>{product.material}</strong>, chosen specifically for its durability and professional finish. Built to meet commercial-grade standards.</p>
-              <ul className="list-disc pl-5 mt-6 space-y-3">
-                {product.features.map((f, i) => <li key={i}>{f}</li>)}
-              </ul>
-              <p className="mt-8">At Brand Easy, we use only premium materials and state-of-the-art printing technology to ensure every product meets the highest standards of quality and brand consistency.</p>
-            </div>
-          </div>
-          <div className="bg-slate-50 p-8 rounded-3xl h-fit">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#0A2733] mb-6">Specifications</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between text-xs py-2 border-b border-slate-200">
-                <span className="text-slate-500">Material</span>
-                <span className="font-bold text-[#0A2733]">{product.material}</span>
-              </div>
-              <div className="flex justify-between text-xs py-2 border-b border-slate-200">
-                <span className="text-slate-500">Category</span>
-                <span className="font-bold text-[#0A2733]">{product.category}</span>
-              </div>
-              <div className="flex justify-between text-xs py-2 border-b border-slate-200">
-                <span className="text-slate-500">Origin</span>
-                <span className="font-bold text-[#0A2733]">Made in India</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Related Products */}
-        {relatedProducts.length > 0 && (
-          <div>
-            <h2 className="text-3xl font-serif font-bold text-[#0A2733] mb-12 text-center underline decoration-[#2DB34A]/30 underline-offset-8">You Might Also Like</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {relatedProducts.map((rp) => (
-                <Link key={rp.id} href={`/products/${rp.id}`} className="group">
-                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-slate-50">
-                    {rp.images && rp.images.length > 0 ? (
-                      <Image src={rp.images[0]} alt={rp.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
-                        <div className="w-12 h-12 mb-2 opacity-20">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                        </div>
-                        <span className="text-[8px] font-black uppercase tracking-widest">Image Coming Soon</span>
-                      </div>
-                    )}
-                  </div>
-                  <h3 className="font-serif font-bold text-[#0A2733] group-hover:text-[#2DB34A] transition-colors">{rp.title}</h3>
-                  <span className="text-xs font-black text-[#0099D4]">₹{rp.price.toLocaleString()}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Sticky Bottom Checkout Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] z-50 py-4">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center justify-end gap-6">
+          
+          <div className="flex items-center gap-4">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-slate-800">₹{(currentPrice * quantity).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+              <span className="text-[10px] text-slate-500">(Incl. GST)</span>
+            </div>
+            
+            {currentDiscountPercent > 0 && (
+              <div className="flex flex-col items-start gap-1 border-r border-slate-200 pr-6 mr-2">
+                <span className="text-sm text-slate-400 line-through">₹{(originalPrice * quantity).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                <span className="bg-[#39B54A] text-white text-[10px] font-bold px-2 py-0.5 rounded">Save {currentDiscountPercent}%</span>
+              </div>
+            )}
+          </div>
+
+          <div className="flex items-center border border-slate-200 rounded h-10">
+            <button onClick={() => handleQuantityChange(-1)} className="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 border-r border-slate-200"><Minus size={14} /></button>
+            <input 
+              type="number" 
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+              className="w-16 h-full text-center text-sm font-bold focus:outline-none appearance-none"
+            />
+            <button onClick={() => handleQuantityChange(1)} className="w-10 h-full flex items-center justify-center text-slate-400 hover:bg-slate-50 border-l border-slate-200"><Plus size={14} /></button>
+          </div>
+
+          <button className="bg-[#00AEEF] text-white px-8 py-3 rounded text-sm font-bold hover:bg-[#0099D4] transition-colors shadow-lg shadow-[#00AEEF]/20">
+            Select Design Method
+          </button>
+
+        </div>
+      </div>
+
     </div>
   );
 }
+
