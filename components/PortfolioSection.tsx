@@ -31,7 +31,7 @@ export default function PortfolioSection() {
              viewport={{ once: true }}
           >
             <Link
-              href="/shop"
+              href="/portfolio"
               className="inline-block bg-white border-2 border-[#0099D4] text-[#0099D4] px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-black hover:bg-[#0099D4] hover:text-white transition-all hover:scale-105 active:scale-95 shadow-lg shadow-slate-100"
             >
               View All Projects

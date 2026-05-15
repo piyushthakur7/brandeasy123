@@ -85,7 +85,7 @@ export default function Navbar() {
         </Link>
 
         {/* Right: Contact Button */}
-        <div className="flex items-center justify-end md:w-1/3">
+        <div className="hidden md:flex items-center justify-end md:w-1/3">
           <Link
             href="/contact"
             className="flex items-center gap-2 bg-[#2DB34A] text-white px-5 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-[#1F8A37] transition-all shadow-lg hover:scale-105 active:scale-95"
