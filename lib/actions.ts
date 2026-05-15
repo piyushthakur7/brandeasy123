@@ -15,36 +15,41 @@ export async function generateAIDesign(
       return { success: false, error: "Gemini API key is missing." };
     }
 
-    let finalPrompt = "";
+    let basePrompt = "";
     if (mode === "signage") {
-      finalPrompt = `Professional architectural signage design for a brand named "${brandName}". ${prompt}. High quality, realistic lighting, highly detailed.`;
+      basePrompt = `Professional architectural signage design for a brand named "${brandName}". ${prompt}. High quality, realistic lighting, highly detailed.`;
     } else if (mode === "wall-art") {
-      finalPrompt = `Fine art gallery style wall decor. ${prompt}. High quality, artistic, beautiful, detailed.`;
+      basePrompt = `Fine art gallery style wall decor. ${prompt}. High quality, artistic, beautiful, detailed.`;
     } else if (mode === "mural") {
-      finalPrompt = `Full wall mural art design. ${prompt}. Immersive environment, highly detailed patterns.`;
+      basePrompt = `Full wall mural art design. ${prompt}. Immersive environment, highly detailed patterns.`;
     } else {
-      finalPrompt = prompt;
+      basePrompt = prompt;
     }
 
-    const response = await ai.models.generateImages({
-        model: 'imagen-3.0-generate-001',
-        prompt: finalPrompt,
-        config: {
-            numberOfImages: 1,
-            aspectRatio: aspectRatio as "1:1" | "3:4" | "4:3" | "9:16" | "16:9",
-            outputMimeType: 'image/jpeg',
-        }
+    // Since Imagen requires a paid plan, we use Gemini Flash to enhance the prompt
+    // and then use Pollinations (a free community AI image generator) to render it.
+    const textResponse = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: `You are an expert AI image prompt engineer. Take the following description and rewrite it into a highly detailed, comma-separated list of keywords optimized for an AI image generator. Do not include any conversational text, just the keywords.\n\nDescription: ${basePrompt}`
     });
 
-    const base64Image = response.generatedImages?.[0]?.image?.imageBytes;
+    const enhancedPrompt = textResponse.text?.trim() || basePrompt;
     
-    if (!base64Image) {
-      return { success: false, error: "Failed to generate image." };
-    }
+    // Generate an image URL using Pollinations.ai with the enhanced prompt
+    // We add a random seed to bypass caching
+    const seed = Math.floor(Math.random() * 1000000);
+    let width = 1024, height = 1024;
+    
+    if (aspectRatio === "16:9") { width = 1024; height = 576; }
+    else if (aspectRatio === "9:16") { width = 576; height = 1024; }
+    else if (aspectRatio === "4:3") { width = 1024; height = 768; }
+    else if (aspectRatio === "3:4") { width = 768; height = 1024; }
+
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(enhancedPrompt)}?width=${width}&height=${height}&seed=${seed}&nologo=true`;
 
     return {
       success: true,
-      imageUrl: `data:image/jpeg;base64,${base64Image}`,
+      imageUrl: imageUrl,
     };
   } catch (error: any) {
     console.error("Gemini Error:", error);
