@@ -37,10 +37,10 @@ export default function CTASection() {
               Start Your Project
             </Link>
             <a
-              href="tel:+919876543210"
+              href="tel:+917741961239"
               className="w-full sm:w-auto border-2 border-white/20 text-white px-12 py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase hover:border-[#2DB34A] hover:text-[#2DB34A] transition-all backdrop-blur-md"
             >
-              Call HQ: +91 98765 43210
+              Call HQ: +91 77419 61239
             </a>
           </div>
         </motion.div>

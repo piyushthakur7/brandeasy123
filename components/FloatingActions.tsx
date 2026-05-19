@@ -6,13 +6,13 @@ import { useState } from "react";
 
 export default function FloatingActions() {
   const [isHovered, setIsHovered] = useState(false);
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919310011931";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917741961239";
 
   return (
     <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
       {/* WhatsApp Button */}
       <motion.a
-        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello! I'm interested in custom signage for my brand.")}`}
+        href={`https://wa.me/c/${whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}

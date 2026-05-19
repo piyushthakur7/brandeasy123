@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Products", href: "/products" },
   { label: "AI Design", href: "/ai-design" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "WhatsApp Images", href: "https://wa.me/c/917741961239" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -50,17 +51,36 @@ export default function Navbar() {
           </button>
           
           <nav className="hidden md:flex items-center gap-5">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-[9px] tracking-[0.1em] uppercase font-serif font-bold transition-all hover:text-[#2DB34A] whitespace-nowrap ${
-                  pathname === link.href ? "text-[#2DB34A]" : "text-[#0A2733]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isExternal = link.href.startsWith("http");
+              const linkClasses = `text-[9px] tracking-[0.1em] uppercase font-serif font-bold transition-all hover:text-[#2DB34A] whitespace-nowrap ${
+                pathname === link.href ? "text-[#2DB34A]" : "text-[#0A2733]"
+              }`;
+              
+              if (isExternal) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClasses}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={linkClasses}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
@@ -107,18 +127,38 @@ export default function Navbar() {
             className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
           >
             <nav className="px-6 py-12 flex flex-col gap-8 text-center bg-slate-50">
-              {[...navLinks, { label: "Contact Us", href: "/contact" }].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-lg tracking-[0.1em] uppercase font-serif font-bold ${
-                    pathname === link.href ? "text-[#2DB34A]" : "text-[#0A2733]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {[...navLinks, { label: "Contact Us", href: "/contact" }].map((link) => {
+                const isExternal = link.href.startsWith("http");
+                const linkClasses = `text-lg tracking-[0.1em] uppercase font-serif font-bold ${
+                  pathname === link.href ? "text-[#2DB34A]" : "text-[#0A2733]"
+                }`;
+
+                if (isExternal) {
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className={linkClasses}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={linkClasses}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
           </motion.div>
         )}
