@@ -6,23 +6,23 @@ import Image from "next/image";
 const spaces = [
   { name: "Corporate Headquarters", type: "Dimensional Signage", location: "Bangalore", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
   { name: "Retail Flagship", type: "Vinyl Window Displays", location: "Mumbai", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" },
-  { name: "Tech Park Event", type: "Large Format Banners", location: "Hyderabad", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" },
-  { name: "Exhibition Center", type: "Modular Fabric Stands", location: "New Delhi", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" },
+  { name: "Tech Park", type: "Large Format Hoardings", location: "Hyderabad", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" },
+  { name: "Manufacturing Plant", type: "Industrial Safety Signs", location: "Pune", img: "https://images.unsplash.com/photo-1565515267688-6627d31065ce?auto=format&fit=crop&q=80&w=800" },
 ];
 
 export default function PortfolioSection() {
   return (
-    <section className="bg-white py-24 md:py-32 overflow-hidden">
+    <section className="bg-surface py-24 md:py-32 border-y border-surface-light overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 md:mb-24 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-[#0099D4] text-[10px] tracking-[0.5em] uppercase font-black mb-4">Latest Installations</p>
-            <h2 className="text-[#0A2733] font-serif text-4xl md:text-7xl font-bold leading-tight">
-              Impactful Brand <span className="text-[#0077A8] italic font-medium">Presence</span>
+            <p className="text-accent text-[10px] tracking-[0.2em] uppercase font-bold mb-4">Past Projects</p>
+            <h2 className="text-text font-heading text-3xl md:text-5xl font-bold leading-tight">
+              Recent <span className="text-accent">Installations</span>
             </h2>
           </motion.div>
           <motion.div
@@ -32,14 +32,14 @@ export default function PortfolioSection() {
           >
             <Link
               href="/portfolio"
-              className="inline-block bg-white border-2 border-[#0099D4] text-[#0099D4] px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-black hover:bg-[#0099D4] hover:text-white transition-all hover:scale-105 active:scale-95 shadow-lg shadow-slate-100"
+              className="inline-block bg-background border border-surface-light text-text px-8 py-4 rounded-sm text-sm tracking-widest uppercase font-bold hover:border-accent transition-all"
             >
-              View All Projects
+              View Portfolio
             </Link>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {spaces.map((p, i) => (
             <motion.div
               key={p.name}
@@ -47,29 +47,26 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden cursor-pointer"
+              className="group relative h-[300px] md:h-[450px] rounded-sm overflow-hidden cursor-pointer border border-surface-light"
             >
               <Image 
                 src={p.img} 
                 alt={p.name} 
                 fill 
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover grayscale opacity-60 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A2733]/80 via-[#0A2733]/20 to-transparent p-12 flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent p-8 flex flex-col justify-end">
                  <div className="flex justify-between items-end">
                     <div>
-                      <p className="text-[#2DB34A] text-[10px] font-black tracking-[0.4em] uppercase mb-4">{p.location}</p>
-                      <h3 className="text-white font-serif text-3xl md:text-5xl font-bold leading-none">{p.name}</h3>
-                      <div className="h-[2px] w-16 bg-[#2DB34A] mt-6 group-hover:w-32 transition-all duration-500" />
+                      <p className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase mb-2">{p.location}</p>
+                      <h3 className="text-text font-heading text-2xl md:text-3xl font-bold leading-none">{p.name}</h3>
                     </div>
-                    <div className="text-white/40 text-[9px] font-black tracking-[0.3em] uppercase hidden md:block">
+                    <div className="text-text-muted text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block border border-surface-light px-2 py-1 rounded-sm bg-background/50 backdrop-blur-sm">
                       {p.type}
                     </div>
                  </div>
               </div>
-              
-              <div className="absolute inset-0 bg-[#0099D4]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           ))}
         </div>

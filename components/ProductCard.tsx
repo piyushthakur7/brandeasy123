@@ -2,93 +2,79 @@
 import { useRouter } from "next/navigation";
 import { Product } from "@/lib/products";
 import Image from "next/image";
-import { motion } from "motion/react";
-import { MessageCircle, Heart } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 import { getWhatsAppQuoteLink } from "@/lib/whatsapp";
 
 export default function ProductCard({ product }: { product: Product }) {
   const router = useRouter();
-
-  const whatsappLink = getWhatsAppQuoteLink(product.title, product.price, {
+  
+  const whatsappLink = getWhatsAppQuoteLink(product.title, product.basePrice, {
     url: typeof window !== "undefined" ? `${window.location.origin}/products/${product.id}` : ""
   });
 
   return (
     <div 
-      className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+      className="group bg-surface rounded-lg overflow-hidden border border-surface-light shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
+      onClick={() => router.push(`/products/${product.id}`)}
     >
       {/* Image Container */}
-      <div 
-        className="relative aspect-[4/5] overflow-hidden cursor-pointer bg-slate-50"
-        onClick={() => router.push(`/products/${product.id}`)}
-      >
+      <div className="relative aspect-video overflow-hidden bg-background">
         {product.images && product.images.length > 0 ? (
           <Image 
             src={product.images[0]} 
             alt={product.title} 
             fill 
-            className="object-cover group-hover:scale-110 transition-transform duration-700"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-300">
-             <div className="w-16 h-16 mb-2 opacity-20">
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-             </div>
-             <span className="text-[10px] font-black uppercase tracking-widest">Image Coming Soon</span>
+          <div className="w-full h-full flex items-center justify-center bg-surface-light/20 text-text-muted">
+             <span className="text-[10px] font-bold uppercase tracking-widest">Image Coming Soon</span>
           </div>
         )}
         
         {/* Hover Actions */}
-        <div className="absolute top-4 right-4 flex flex-col gap-2 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">
-          <button className="p-3 bg-white/90 backdrop-blur rounded-full text-[#0A2733] hover:text-[#2DB34A] shadow-lg transition-colors">
-            <Heart size={18} />
-          </button>
+        <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <a 
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-[#2DB34A] rounded-full text-white shadow-lg transition-transform hover:scale-110 active:scale-95"
+            className="p-2.5 bg-accent rounded text-background shadow-lg transition-transform hover:scale-105 active:scale-95"
             onClick={(e) => e.stopPropagation()}
           >
-            <MessageCircle size={18} />
+            <MessageCircle size={16} />
           </a>
         </div>
 
         {product.isFeatured && (
-          <div className="absolute top-4 left-4 bg-[#2DB34A] text-white text-[8px] font-black tracking-widest uppercase px-3 py-1 rounded-full shadow-lg">
-            Featured
+          <div className="absolute top-3 left-3 bg-accent-orange text-background text-[8px] font-black tracking-widest uppercase px-2 py-1 rounded shadow-lg">
+            Popular
           </div>
         )}
       </div>
 
       {/* Details */}
-      <div className="p-6 flex flex-col flex-1">
+      <div className="p-5 flex flex-col flex-1">
         <div className="mb-4">
-          <span className="text-[9px] font-black tracking-[0.2em] uppercase text-[#0099D4]/60 block mb-1">
-            {product.subcategory}
+          <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-accent block mb-2">
+            {product.category}
           </span>
-          <h3 
-            className="font-serif text-xl font-bold text-[#0A2733] cursor-pointer hover:text-[#2DB34A] transition-colors line-clamp-1"
-            onClick={() => router.push(`/products/${product.id}`)}
-          >
+          <h3 className="font-heading text-lg font-bold text-text group-hover:text-accent transition-colors line-clamp-1">
             {product.title}
           </h3>
+          <p className="text-sm text-text-muted mt-1 line-clamp-2">
+            {product.description}
+          </p>
         </div>
 
-        <div className="mt-auto flex items-center justify-between">
+        <div className="mt-auto pt-4 border-t border-surface-light flex items-end justify-between">
           <div className="flex flex-col">
-            <span className="text-lg font-black text-[#0A2733]">₹{product.price.toLocaleString()}</span>
-            <span className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">Incl. GST</span>
+            <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider mb-1">Starting at</span>
+            <span className="text-xl font-bold text-text">₹{product.basePrice.toLocaleString()} <span className="text-xs text-text-muted font-normal">/{product.pricingUnit}</span></span>
           </div>
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[9px] font-black uppercase tracking-[0.2em] text-[#0A2733] border-b-2 border-[#2DB34A]/30 hover:border-[#2DB34A] transition-all pb-1"
-          >
-            Get Quote →
-          </a>
+          <div className="text-accent flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest group-hover:translate-x-1 transition-transform">
+            Specs <ExternalLink size={12} />
+          </div>
         </div>
       </div>
     </div>

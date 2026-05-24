@@ -3,28 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Lato", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 @theme {
-  --font-serif: var(--font-serif);
+  --font-heading: var(--font-heading);
   --font-sans: var(--font-sans);
 }
 
 :root {
-  --blue:        #0099D4;
-  --blue-dark:   #0077A8;
-  --blue-deeper: #005A80;
-  --blue-light:  #E0F4FB;
-  --green:       #2DB34A;
-  --green-dark:  #1F8A37;
-  --green-deeper:#155C25;
-  --green-light: #E4F7E9;
-  --white:       #FFFFFF;
-  --off-white:   #F3FAFD;
-  --text-dark:   #0A2733;
-  --text-mid:    #2A5566;
+  --background: #0F1115;
+  --surface: #1E293B;
+  --surface-light: #334155;
+  --accent: #2DB34A;
+  --accent-dark: #1F8A37;
+  --accent-orange: #F97316;
+  --text: #E2E8F0;
+  --text-muted: #94A3B8;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -32,25 +28,27 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--off-white);
-  color: var(--text-dark);
-  font-family: 'Lato', system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Light blue-tinted background with subtle crosshatch pattern */
+/* Industrial pattern background */
 .floral-bg {
-  background-color: #F3FAFD;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%230099D4' fill-opacity='0.055'%3E%3Crect x='36' y='4' width='8' height='32' rx='4'/%3E%3Crect x='36' y='44' width='8' height='32' rx='4'/%3E%3Crect x='4' y='36' width='32' height='8' rx='4'/%3E%3Crect x='44' y='36' width='32' height='8' rx='4'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #0F1115;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-/* Deep blue background with green-tinted subtle pattern */
 .maroon-floral-bg {
-  background-color: #0077A8;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%232DB34A' fill-opacity='0.08'%3E%3Crect x='36' y='4' width='8' height='32' rx='4'/%3E%3Crect x='36' y='44' width='8' height='32' rx='4'/%3E%3Crect x='4' y='36' width='32' height='8' rx='4'/%3E%3Crect x='44' y='36' width='32' height='8' rx='4'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #1E293B;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* Marquee animation */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -62,7 +60,7 @@ body {
   white-space: nowrap;
 }
 
-::-webkit-scrollbar        { width: 5px; }
-::-webkit-scrollbar-track  { background: var(--off-white); }
-::-webkit-scrollbar-thumb  { background: var(--blue); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--green); }
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: var(--background); }
+::-webkit-scrollbar-thumb  { background: var(--surface-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
