@@ -11,6 +11,7 @@ export interface Product {
   thickness: string;
   lightingType: "None" | "LED Backlit" | "LED Frontlit" | "Neon" | "Edge-lit";
   installationType: string;
+  durability: "Indoor/Outdoor" | "Indoor Only" | "Outdoor Only";
   pricingUnit: "sqft" | "inch" | "fixed" | "unit";
   basePrice: number; // Price per unit/sqft/inch
   minimumOrder: string;
@@ -37,6 +38,7 @@ export const products: Product[] = [
     thickness: "Custom",
     lightingType: "None",
     installationType: "Wall Mounted",
+    durability: "Indoor Only",
     pricingUnit: "fixed",
     basePrice: 1350,
     minimumOrder: "1 Board",
@@ -53,6 +55,7 @@ export const products: Product[] = [
     thickness: "Custom Depth",
     lightingType: "None",
     installationType: "Stud Mount",
+    durability: "Indoor/Outdoor",
     pricingUnit: "inch",
     basePrice: 290,
     minimumOrder: "10 Inches",
@@ -69,6 +72,7 @@ export const products: Product[] = [
     thickness: "10mm Acrylic Base",
     lightingType: "LED Backlit",
     installationType: "Stud Mount",
+    durability: "Indoor/Outdoor",
     pricingUnit: "inch",
     basePrice: 320,
     minimumOrder: "10 Inches",
@@ -85,6 +89,7 @@ export const products: Product[] = [
     thickness: "Standard",
     lightingType: "None",
     installationType: "Adhesive Application",
+    durability: "Indoor Only",
     pricingUnit: "sqft",
     basePrice: 25,
     minimumOrder: "10 SqFt",
@@ -101,6 +106,7 @@ export const products: Product[] = [
     thickness: "Standard",
     lightingType: "None",
     installationType: "Eyelets / Frame Mount",
+    durability: "Outdoor Only",
     pricingUnit: "sqft",
     basePrice: 7,
     minimumOrder: "50 SqFt",
@@ -117,6 +123,7 @@ export const products: Product[] = [
     thickness: "3mm / 4mm",
     lightingType: "None",
     installationType: "Frame Mount",
+    durability: "Indoor/Outdoor",
     pricingUnit: "sqft",
     basePrice: 400,
     minimumOrder: "10 SqFt",

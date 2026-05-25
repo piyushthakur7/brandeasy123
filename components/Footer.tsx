@@ -10,9 +10,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-heading font-black mb-8 text-white">Brand Easy</h3>
-            <p className="text-text-muted text-lg max-w-md leading-relaxed mb-8">
+            <h3 className="text-2xl font-heading font-black mb-4 text-white">Brand Easy</h3>
+            <p className="text-text-muted text-sm max-w-md leading-relaxed mb-4">
               Premium industrial branding, signage manufacturing, and corporate printing solutions.
+            </p>
+            <p className="text-xs text-text-muted/60 mb-8 max-w-md">
+              Top-rated Sign Board Manufacturer in Surat, Gujarat. Specializing in ACP Signage Services, LED Sign Board Installation, and Custom 3D Acrylic Letters for businesses across India.
             </p>
             <div className="space-y-3 mb-8">
               <p className="text-text-muted text-sm font-bold">
@@ -48,6 +51,11 @@ export default function Footer() {
                <li><Link href="/portfolio" className="text-text-muted hover:text-accent transition-colors">Installation Portfolio</Link></li>
                <li><Link href="/contact" className="text-text-muted hover:text-accent transition-colors">Contact Support</Link></li>
              </ul>
+             
+             <h4 className="text-[10px] font-black tracking-widest uppercase mt-8 mb-4 text-white">Service Areas</h4>
+             <p className="text-text-muted text-xs leading-relaxed">
+               Surat, Ahmedabad, Mumbai, Pune, Bangalore, Hyderabad, Delhi, and Pan-India.
+             </p>
           </div>
         </div>
 

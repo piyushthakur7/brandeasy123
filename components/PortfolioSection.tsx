@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const spaces = [
-  { name: "Corporate Headquarters", type: "Dimensional Signage", location: "Bangalore", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" },
-  { name: "Retail Flagship", type: "Vinyl Window Displays", location: "Mumbai", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" },
-  { name: "Tech Park", type: "Large Format Hoardings", location: "Hyderabad", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" },
-  { name: "Manufacturing Plant", type: "Industrial Safety Signs", location: "Pune", img: "https://images.unsplash.com/photo-1565515267688-6627d31065ce?auto=format&fit=crop&q=80&w=800" },
+  { name: "Retail Storefront", type: "LED Glow Signage", location: "Bangalore", img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" },
+  { name: "Corporate Office", type: "3D Acrylic Letters", location: "Mumbai", img: "https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=800" },
+  { name: "Tech Park Hoarding", type: "Industrial Printing", location: "Hyderabad", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&q=80&w=800" },
+  { name: "Manufacturing Plant", type: "On-site Installation", location: "Pune", img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" },
 ];
 
 export default function PortfolioSection() {

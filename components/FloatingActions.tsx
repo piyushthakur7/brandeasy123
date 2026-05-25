@@ -11,17 +11,17 @@ export default function FloatingActions() {
     <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
       {/* WhatsApp Button */}
       <motion.a
-        href={`https://wa.me/${whatsappNumber}?text=Hi, I would like to request a quote for signage/printing.`}
+        href={`https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20request%20a%20manufacturing%20quote.`}
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-3 bg-accent text-white p-4 rounded-full shadow-2xl hover:bg-accent-dark transition-colors group"
+        className="flex items-center gap-3 bg-accent text-background px-5 py-4 rounded-full shadow-[0_0_20px_rgba(255,165,0,0.4)] hover:bg-accent-dark transition-all group"
       >
-        <span className="text-[10px] font-black tracking-[0.2em] uppercase max-w-0 overflow-hidden group-hover:max-w-[150px] transition-all whitespace-nowrap pl-2">
-          Request Quote
-        </span>
         <MessageCircle size={24} fill="currentColor" />
+        <span className="text-[11px] font-black tracking-[0.15em] uppercase whitespace-nowrap">
+          Get Quote
+        </span>
       </motion.a>
     </div>
   );

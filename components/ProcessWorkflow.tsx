@@ -3,23 +3,23 @@ import { ClipboardList, PenTool, Factory, Truck } from "lucide-react";
 const steps = [
   {
     icon: ClipboardList,
-    title: "1. Requirement & Quote",
-    desc: "Share your specifications or upload designs. We provide a detailed manufacturing quote."
+    title: "1. Consultation & Quote",
+    desc: "Share your specifications or schedule a site visit. We provide a detailed manufacturing estimate."
   },
   {
     icon: PenTool,
-    title: "2. Design & Proofing",
-    desc: "Our structural engineers and designers finalize the proof for your approval."
+    title: "2. Design & Engineering",
+    desc: "Our structural engineers finalize the proof, material specs, and load-bearing requirements."
   },
   {
     icon: Factory,
-    title: "3. Manufacturing",
-    desc: "Precision cutting, printing, and assembly at our state-of-the-art facility."
+    title: "3. Fabrication",
+    desc: "Precision CNC cutting, industrial printing, and assembly at our state-of-the-art facility."
   },
   {
     icon: Truck,
-    title: "4. Delivery & Install",
-    desc: "Secure packaging and nationwide delivery, with optional professional installation."
+    title: "4. Installation",
+    desc: "Secure packaging, pan-India delivery, and professional on-site installation by our team."
   }
 ];
 

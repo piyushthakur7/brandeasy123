@@ -135,8 +135,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {/* Pricing Calculator */}
             <div className="bg-surface border border-surface-light p-6 rounded-sm mb-8">
               <h3 className="text-sm font-bold text-text mb-4 flex items-center gap-2">
-                Dimensional Estimator
-                <span className="text-[10px] font-normal text-text-muted px-2 py-0.5 bg-surface-light rounded-sm">Base: ₹{product.basePrice} / {product.pricingUnit}</span>
+                Custom Quote Builder
+                <span className="text-[10px] font-normal text-text-muted px-2 py-0.5 bg-surface-light rounded-sm">Provide details for an accurate estimate</span>
               </h3>
               
               <div className="grid grid-cols-2 gap-4 mb-6">
@@ -189,7 +189,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   className="flex items-center gap-2 bg-accent text-background px-6 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg hover:-translate-y-1"
                 >
                   <MessageCircle size={18} />
-                  Request Quote
+                  Share on WhatsApp
                 </a>
               </div>
             </div>

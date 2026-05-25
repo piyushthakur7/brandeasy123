@@ -1,7 +1,24 @@
 export default function ClientTrustSection() {
   return (
-    <section className="bg-surface py-16 border-y border-surface-light">
+    <section className="bg-surface py-20 border-y border-surface-light">
       <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        
+        {/* Operational Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 pb-16 border-b border-surface-light">
+          <div>
+            <p className="text-4xl font-heading font-black text-text mb-2">15+</p>
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted">Years Experience</p>
+          </div>
+          <div>
+            <p className="text-4xl font-heading font-black text-text mb-2">10,000+</p>
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted">Sq Ft Manufacturing</p>
+          </div>
+          <div>
+            <p className="text-4xl font-heading font-black text-text mb-2">Pan-India</p>
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted">Installation Network</p>
+          </div>
+        </div>
+
         <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-text-muted mb-8">
           Trusted by 500+ Businesses Across India
         </p>

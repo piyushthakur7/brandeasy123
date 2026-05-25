@@ -1,38 +1,23 @@
-"use server";
-
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import GoldChevronStrip from "@/components/GoldChevronStrip";
 import { ChevronLeft } from "lucide-react";
-
-// Mock data for the sake of working links
-const blogPosts = [
-  {
-    title: "10 Luxury Wall Art Ideas to Elevate Your Living Room",
-    slug: "luxury-wall-art-living-room",
-    image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200",
-    category: "Interior Design",
-    date: "April 20, 2026",
-    content: "Content for luxury wall art ideas..."
-  },
-  {
-    title: "Canvas vs Framed Prints: Which One Fits Your Home?",
-    slug: "canvas-vs-framed-prints",
-    image: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800",
-    category: "Buying Guide",
-    date: "April 18, 2026",
-    content: "Content for canvas vs framed prints..."
-  }
-];
+import { getPostBySlug } from "@/lib/blog";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return notFound();
   }
+
+  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -44,24 +29,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           Back to Blog
         </Link>
 
-        <p className="text-[#2DB34A] text-[10px] tracking-[0.3em] uppercase font-black mb-4">{post.category}</p>
+        <p className="text-[#2DB34A] text-[10px] tracking-[0.3em] uppercase font-black mb-4">Article</p>
         <h1 className="text-[#0A2733] font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">{post.title}</h1>
-        <p className="text-slate-400 text-xs mb-10">{post.date} • 5 min read</p>
+        <p className="text-slate-400 text-xs mb-10">{formattedDate} • 5 min read</p>
 
-        <div className="relative aspect-video w-full rounded-3xl overflow-hidden mb-12 shadow-2xl">
-          <Image src={post.image} alt={post.title} fill className="object-cover" />
-        </div>
+        {post.coverImage && (
+          <div className="relative aspect-video w-full rounded-3xl overflow-hidden mb-12 shadow-2xl">
+            <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
+          </div>
+        )}
 
         <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed font-light">
-          <p className="text-xl text-[#0A2733] font-serif italic mb-8 border-l-4 border-[#2DB34A] pl-6">
-            "Art is not just decoration; it is the soul of a room."
-          </p>
-          <p>
-            {post.content}
-          </p>
-          <p className="mt-6">
-            This is a placeholder for the full article content. In a real application, this would be fetched from a CMS or a markdown file.
-          </p>
+          {post.content.split('\n').map((paragraph, idx) => {
+            if (paragraph.startsWith('## ')) {
+              return <h2 key={idx} className="text-2xl font-bold text-[#0A2733] mt-10 mb-4">{paragraph.replace('## ', '')}</h2>;
+            }
+            if (paragraph.startsWith('### ')) {
+              return <h3 key={idx} className="text-xl font-bold text-[#0A2733] mt-8 mb-3">{paragraph.replace('### ', '')}</h3>;
+            }
+            if (paragraph.trim() === '') {
+              return null;
+            }
+            return <p key={idx} className="mb-4">{paragraph}</p>;
+          })}
         </div>
       </article>
       

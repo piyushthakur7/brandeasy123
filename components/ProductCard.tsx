@@ -67,13 +67,39 @@ export default function ProductCard({ product }: { product: Product }) {
           </p>
         </div>
 
-        <div className="mt-auto pt-4 border-t border-surface-light flex items-end justify-between">
-          <div className="flex flex-col">
-            <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider mb-1">Starting at</span>
-            <span className="text-xl font-bold text-text">₹{product.basePrice.toLocaleString()} <span className="text-xs text-text-muted font-normal">/{product.pricingUnit}</span></span>
+        <div className="mt-auto pt-4 border-t border-surface-light">
+          <div className="grid grid-cols-2 gap-y-3 gap-x-2 mb-4">
+            <div className="flex flex-col">
+              <span className="text-[9px] text-text-muted uppercase font-bold tracking-widest">Material</span>
+              <span className="text-xs text-text font-medium truncate" title={product.material}>{product.material}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] text-text-muted uppercase font-bold tracking-widest">Lighting</span>
+              <span className="text-xs text-text font-medium truncate" title={product.lightingType}>{product.lightingType}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] text-text-muted uppercase font-bold tracking-widest">Durability</span>
+              <span className="text-xs text-text font-medium truncate" title={product.durability}>{product.durability}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] text-text-muted uppercase font-bold tracking-widest">Install Support</span>
+              <span className="text-xs text-text font-medium truncate" title={product.installationType}>{product.installationType}</span>
+            </div>
           </div>
-          <div className="text-accent flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest group-hover:translate-x-1 transition-transform">
-            Specs <ExternalLink size={12} />
+          
+          <div className="flex items-center justify-between">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest group-hover:text-accent-dark transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Get Quote <ExternalLink size={12} />
+            </a>
+            <span className="text-text-muted text-[10px] uppercase font-bold tracking-widest group-hover:translate-x-1 transition-transform">
+              View Specs →
+            </span>
           </div>
         </div>
       </div>

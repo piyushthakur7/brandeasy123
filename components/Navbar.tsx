@@ -11,6 +11,7 @@ const navLinks = [
   { label: "B2B Catalog", href: "/products" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
   { label: "About Us", href: "/about" },
 ];
 
@@ -96,7 +97,7 @@ export default function Navbar() {
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-bold uppercase tracking-widest text-text hover:text-accent transition-colors"
+            className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:bg-[#128C7E] transition-colors shadow-sm"
           >
             WhatsApp
           </Link>
