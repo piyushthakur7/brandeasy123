@@ -87,19 +87,27 @@ export default function ProductCard({ product }: { product: Product }) {
             </div>
           </div>
           
-          <div className="flex items-center justify-between">
-            <a 
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest group-hover:text-accent-dark transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Get Quote <ExternalLink size={12} />
-            </a>
-            <span className="text-text-muted text-[10px] uppercase font-bold tracking-widest group-hover:translate-x-1 transition-transform">
-              View Specs →
-            </span>
+          <div className="flex items-end justify-between pt-4 border-t border-surface-light">
+            <div className="flex flex-col">
+              <span className="text-[10px] text-text-muted uppercase font-bold tracking-wider mb-1">Starting at</span>
+              <span className="text-xl font-bold text-text">
+                ₹{product.basePrice.toLocaleString()} <span className="text-xs text-text-muted font-normal">/{product.pricingUnit}</span>
+              </span>
+            </div>
+            <div className="flex flex-col items-end gap-2">
+              <a 
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest group-hover:text-accent-dark transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Get Quote <ExternalLink size={12} />
+              </a>
+              <span className="text-text-muted text-[10px] uppercase font-bold tracking-widest group-hover:translate-x-1 transition-transform">
+                View Specs →
+              </span>
+            </div>
           </div>
         </div>
       </div>

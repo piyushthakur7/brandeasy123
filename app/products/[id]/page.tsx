@@ -10,9 +10,9 @@ import { notFound } from "next/navigation";
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
-  const product = products.find((p) => p.id === resolvedParams.id);
+  const product = products.find((p) => p.id === resolvedParams?.id);
   
-  if (!product) return notFound();
+  if (!product) return <div className="pt-32 text-center text-white">Product Not Found: {JSON.stringify(resolvedParams)}</div>;
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [width, setWidth] = useState<number>(1);
@@ -136,7 +136,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="bg-surface border border-surface-light p-6 rounded-sm mb-8">
               <h3 className="text-sm font-bold text-text mb-4 flex items-center gap-2">
                 Custom Quote Builder
-                <span className="text-[10px] font-normal text-text-muted px-2 py-0.5 bg-surface-light rounded-sm">Provide details for an accurate estimate</span>
+                <span className="text-[10px] font-normal text-text-muted px-2 py-0.5 bg-surface-light rounded-sm">Base: ₹{product.basePrice.toLocaleString()} / {product.pricingUnit}</span>
               </h3>
               
               <div className="grid grid-cols-2 gap-4 mb-6">

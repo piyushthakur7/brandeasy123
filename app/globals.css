@@ -13,6 +13,19 @@
 }
 
 :root {
+  /* Light mode (original theme) */
+  --background: #FFFFFF;
+  --surface: #F8FAFC;
+  --surface-light: #E2E8F0;
+  --accent: #2DB34A;
+  --accent-dark: #1F8A37;
+  --accent-orange: #F97316;
+  --text: #0F172A;
+  --text-muted: #64748B;
+}
+
+.dark {
+  /* Dark mode (industrial theme) */
   --background: #0F1115;
   --surface: #1E293B;
   --surface-light: #334155;
@@ -36,17 +49,27 @@ body {
 
 /* Industrial pattern background */
 .floral-bg {
-  background-color: #0F1115;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-color: var(--background);
+  background-image: linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
+.dark .floral-bg {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
 .maroon-floral-bg {
-  background-color: #1E293B;
+  background-color: var(--surface);
+  background-image: linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .maroon-floral-bg {
   background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
   linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 @keyframes marquee {

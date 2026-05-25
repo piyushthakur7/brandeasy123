@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -42,14 +43,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 relative">
         
-        {/* Left: Desktop Nav links */}
-        <div className="flex items-center gap-6 md:w-1/3">
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-accent hover:bg-surface-light rounded-full transition-colors"
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        {/* Left: Desktop Nav links & Mobile toggles */}
+        <div className="flex items-center gap-4 md:gap-6 md:w-1/3">
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={() => setOpen(!open)}
+              className="p-2 text-accent hover:bg-surface-light rounded-full transition-colors"
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            <ThemeToggle />
+          </div>
           
           <nav className="hidden md:flex items-center gap-5">
             {navLinks.map((link) => {
@@ -91,7 +95,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Right: Contact Button */}
+        {/* Right: Contact Button & Theme Toggle */}
         <div className="hidden md:flex items-center justify-end md:w-1/3 gap-4">
           <Link
             href={`https://wa.me/${whatsappNumber}`}
@@ -108,6 +112,7 @@ export default function Navbar() {
             <Phone size={14} />
             {companyPhone}
           </a>
+          <ThemeToggle />
         </div>
       </div>
 

@@ -19,6 +19,8 @@ const inter = Inter({
   display: "swap",
 });
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export const metadata: Metadata = {
   title: "Brand Easy – Premium Industrial Printing & Signage Solutions",
   description: "High-quality industrial branding, 3D letters, flex printing, ACP signage, and corporate branding solutions for B2B enterprises.",
@@ -30,14 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans bg-[#0F1115] text-[#E2E8F0]">
-        <Preloader />
-        <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
-        <FloatingActions />
-        <SpeedInsights />
+    <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col font-sans bg-background text-text transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Preloader />
+          <Navbar />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer />
+          <FloatingActions />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
