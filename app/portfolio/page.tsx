@@ -46,7 +46,7 @@ export default function PortfolioPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto shrink-0">
                 <a
-                  href="https://wa.me/c/917741961239"
+                  href={`https://wa.me/c/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-5 rounded-2xl hover:bg-[#1ebe5d] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#25D366]/20 font-serif text-[10px] font-black uppercase tracking-widest"

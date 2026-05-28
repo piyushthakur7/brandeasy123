@@ -1,5 +1,5 @@
 export function getWhatsAppQuoteLink(productTitle: string, price: number, options?: { size?: string; color?: string; url?: string }) {
-  const phoneNumber = "917741961239";
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847";
   const baseUrl = "https://wa.me/" + phoneNumber;
   
   let message = `Hello Brand Easy Art, I'm interested in getting a quote for:\n\n`;

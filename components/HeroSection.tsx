@@ -11,6 +11,7 @@ const trustBadges = [
 ];
 
 export default function HeroSection() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847";
   return (
     <section className="bg-background pt-10 pb-16">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -52,7 +53,7 @@ export default function HeroSection() {
 
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <Link
-                  href="https://wa.me/917741961239?text=Hi,%20I%20would%20like%20to%20get%20a%20manufacturing%20quote%20for%20my%20signage%20requirements."
+                  href={`https://wa.me/${whatsappNumber}?text=Hi,%20I%20would%20like%20to%20get%20a%20manufacturing%20quote%20for%20my%20signage%20requirements.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto bg-accent text-background px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg flex items-center justify-center gap-2"

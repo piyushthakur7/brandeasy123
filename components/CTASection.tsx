@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 export default function CTASection() {
+  const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+917741961239";
   return (
     <section className="maroon-floral-bg py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#2DB34A]/40 to-transparent" />
@@ -37,10 +38,10 @@ export default function CTASection() {
               Start Your Project
             </Link>
             <a
-              href="tel:+917741961239"
+              href={`tel:${companyPhone}`}
               className="w-full sm:w-auto border-2 border-white/20 text-white px-12 py-5 rounded-full text-[11px] font-black tracking-[0.3em] uppercase hover:border-[#2DB34A] hover:text-[#2DB34A] transition-all backdrop-blur-md"
             >
-              Call HQ: +91 77419 61239
+              Call HQ: {companyPhone}
             </a>
           </div>
         </motion.div>

@@ -22,7 +22,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+917741961239";
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917741961239";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847";
 
   useEffect(() => {
     const handleScroll = () => {

@@ -196,7 +196,7 @@ export default function AIDesignPage() {
                             <Download size={18} />
                           </button>
                           <a 
-                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917741961239"}?text=Hi, I generated a concept in your AI Studio for a ${material} sign for my ${industry}. Can we discuss a manufacturing quote?`}
+                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}?text=Hi, I generated a concept in your AI Studio for a ${material} sign for my ${industry}. Can we discuss a manufacturing quote?`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-accent text-background px-6 py-3 rounded-sm text-[11px] font-black uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"
