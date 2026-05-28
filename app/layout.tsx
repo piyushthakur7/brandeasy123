@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-sans bg-background text-text transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Preloader />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
