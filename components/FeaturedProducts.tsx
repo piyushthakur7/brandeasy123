@@ -24,10 +24,10 @@ export default function FeaturedProducts() {
             </div>
             <div>
               <Link 
-                href="/shop" 
+                href="/products" 
                 className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase text-[#0A2733] group hover:text-[#2DB34A] transition-colors"
               >
-                Browse Shop
+                Browse Catalog
                 <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -52,7 +52,7 @@ export default function FeaturedProducts() {
              {["Banners", "Stands", "Table Covers", "Flags", "Signage", "Marketing"].map((tag) => (
                <Link 
                  key={tag}
-                 href={`/shop`}
+                 href={`/products#${tag.toLowerCase().replace(/\s+/g, "-")}`}
                  className="px-6 py-3 rounded-full border border-slate-200 text-[#0A2733]/60 text-[10px] font-bold tracking-widest uppercase hover:border-[#2DB34A] hover:text-[#2DB34A] transition-all bg-white"
                >
                  {tag}

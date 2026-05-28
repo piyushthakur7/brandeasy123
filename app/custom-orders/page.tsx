@@ -125,7 +125,7 @@ export default function CustomOrdersPage() {
 
       {/* Gallery Link */}
       <section className="py-24 text-center">
-        <Link href="/shop" className="text-[#0099D4] text-xs font-black uppercase tracking-[0.2em] underline underline-offset-8">
+        <Link href="/products" className="text-[#0099D4] text-xs font-black uppercase tracking-[0.2em] underline underline-offset-8">
           Back To Gallery Collection
         </Link>
       </section>
