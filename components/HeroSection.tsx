@@ -1,10 +1,24 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, ArrowRight, ShieldCheck, Zap, Factory } from "lucide-react";
+import { products } from "@/lib/products";
 
 export default function HeroSection() {
+  // Filter for products that have valid images to use as slides
+  const slideProducts = products.filter(p => p.images && p.images.length > 0).slice(0, 8);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (slideProducts.length === 0) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideProducts.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [slideProducts.length]);
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-background">
       
@@ -140,7 +154,7 @@ export default function HeroSection() {
               </div>
             </motion.div>
             
-            {/* Main Visual Image frame */}
+            {/* Main Visual Image Slider */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -148,14 +162,49 @@ export default function HeroSection() {
               className="relative w-full aspect-[4/3] bg-gradient-to-tr from-accent/5 to-transparent border border-surface-light rounded-3xl overflow-hidden shadow-2xl p-6 group"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
-              <Image
-                src="/hero_art.png"
-                alt="Premium Brand Easy 3D Signage Showcase"
-                fill
-                priority
-                className="object-contain p-4 hover:scale-[1.04] transition-transform duration-700"
-                unoptimized
-              />
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.45, ease: "easeInOut" }}
+                  className="absolute inset-0 p-6 flex items-center justify-center"
+                >
+                  {slideProducts[currentSlide] && (
+                    <Image
+                      src={slideProducts[currentSlide].images[0]}
+                      alt={slideProducts[currentSlide].title}
+                      fill
+                      priority
+                      className="object-contain p-4 hover:scale-[1.04] transition-transform duration-700"
+                      unoptimized
+                    />
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Floating Glassmorphic Fumes Text Banner */}
+              {slideProducts[currentSlide] && (
+                <div className="absolute bottom-4 left-4 right-4 z-20 bg-background/85 dark:bg-slate-900/85 backdrop-blur-md border border-surface-light px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between gap-4">
+                  <div className="overflow-hidden">
+                    <span className="text-accent text-[9px] font-black uppercase tracking-wider block mb-0.5">
+                      {slideProducts[currentSlide].category}
+                    </span>
+                    <span className="fumes-text text-xs sm:text-sm font-extrabold tracking-wide block truncate max-w-[150px] sm:max-w-[200px]">
+                      {slideProducts[currentSlide].title}
+                    </span>
+                  </div>
+                  <Link
+                    href={`/products/${slideProducts[currentSlide].id}`}
+                    className="bg-accent hover:bg-accent-dark text-background text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-xl transition-all duration-300 shadow-md shrink-0 whitespace-nowrap"
+                  >
+                    Specs &rarr;
+                  </Link>
+                </div>
+              )}
+              
             </motion.div>
             
           </div>
