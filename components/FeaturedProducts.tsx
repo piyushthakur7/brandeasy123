@@ -5,6 +5,16 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+const categoryLinks = [
+  { label: "3D Letters", hash: "3d-acrylic-letters" },
+  { label: "LED Boards", hash: "led-sign-boards" },
+  { label: "ACP Panels", hash: "acp-panels" },
+  { label: "Signboards", hash: "premium-signboards" },
+  { label: "Vinyl Banners", hash: "flex-&-vinyl-banners" },
+  { label: "Promo Stands", hash: "stands-&-promo-displays" },
+  { label: "Branding", hash: "branding-&-marketing-materials" }
+];
+
 export default function FeaturedProducts() {
   const featured = products.filter(p => p.isFeatured).length > 0 
     ? products.filter(p => p.isFeatured).slice(0, 6)
@@ -49,13 +59,13 @@ export default function FeaturedProducts() {
 
         {/* Categories Quick Links */}
         <div className="mt-20 flex flex-wrap justify-center gap-4">
-             {["Banners", "Stands", "Table Covers", "Flags", "Signage", "Marketing"].map((tag) => (
+             {categoryLinks.map((link) => (
                <Link 
-                 key={tag}
-                 href={`/products#${tag.toLowerCase().replace(/\s+/g, "-")}`}
+                 key={link.label}
+                 href={`/products#${link.hash}`}
                  className="px-6 py-3 rounded-full border border-slate-200 text-[#0A2733]/60 text-[10px] font-bold tracking-widest uppercase hover:border-[#2DB34A] hover:text-[#2DB34A] transition-all bg-white"
                >
-                 {tag}
+                 {link.label}
                </Link>
              ))}
         </div>

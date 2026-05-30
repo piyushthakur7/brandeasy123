@@ -1,6 +1,7 @@
 "use client";
 import { use, useState, useEffect } from "react";
 import { products } from "@/lib/products";
+import ProductCard from "@/components/ProductCard";
 import { 
   ChevronRight, 
   ArrowLeft, 
@@ -59,6 +60,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     }
     setEstimatedTotal(total);
   }, [width, height, quantity, product.basePrice, product.pricingUnit]);
+
+  // Reset inputs and scroll to top when product ID changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSelectedImage(0);
+    setWidth(1);
+    setHeight(1);
+    setQuantity(1);
+  }, [resolvedParams?.id]);
 
   const whatsappLink = getWhatsAppQuoteLink(
     `${product.title} (Qty: ${quantity}${product.pricingUnit !== 'fixed' && product.pricingUnit !== 'unit' ? `, Size: ${width}x${height} ${product.pricingUnit}` : ''})`,
@@ -214,6 +224,21 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  // Find related products (in same category, excluding current product)
+  const relatedProducts = products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 4);
+
+  // If fewer than 4 related products, fill with other featured or standard products
+  if (relatedProducts.length < 4) {
+    const remaining = 4 - relatedProducts.length;
+    const fillers = products
+      .filter((p) => p.id !== product.id && !relatedProducts.some((r) => r.id === p.id))
+      .sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0))
+      .slice(0, remaining);
+    relatedProducts.push(...fillers);
+  }
 
   return (
     <div className="min-h-screen bg-background text-text floral-bg pb-24">
@@ -731,6 +756,44 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           <p className="text-[11px] text-text-muted text-center leading-relaxed mt-6">
             Disclaimer: The calculated price is a base estimate for regular dimensions. Final invoicing may vary based on exact font complexities, mounting structures, vector complexity, and logistics. Our design experts will share a finalized design vector diagram and quotation via WhatsApp.
           </p>
+        </div>
+      </section>
+
+      {/* Related Products Gallery */}
+      <section className="py-20 max-w-7xl mx-auto px-4 md:px-8 border-t border-surface-light mt-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <span className="px-3 py-1 bg-accent/10 text-accent text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 inline-block">
+              More Options
+            </span>
+            <h2 className="text-3xl font-heading font-extrabold text-text">
+              Related Signages & Displays
+            </h2>
+            <p className="text-text-muted text-sm mt-2 max-w-2xl">
+              Explore other premium branding solutions to elevate your business presence and matching architectural signages.
+            </p>
+          </div>
+          
+          <Link
+            href="/products"
+            className="text-xs font-bold text-accent hover:text-accent-dark uppercase tracking-widest flex items-center gap-1.5 transition-colors border-b border-accent/20 hover:border-accent pb-1 w-fit shrink-0"
+          >
+            Explore Full Catalog &rarr;
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {relatedProducts.map((p, idx) => (
+            <motion.div
+              key={p.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.05 }}
+              viewport={{ once: true }}
+            >
+              <ProductCard product={p} />
+            </motion.div>
+          ))}
         </div>
       </section>
     </div>

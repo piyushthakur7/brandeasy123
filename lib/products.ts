@@ -261,7 +261,7 @@ export const products: Product[] = [
   {
     "id": "product1",
     "title": "Alluminium profile changeable directory board",
-    "description": "Co sign material imported Alluminium profile, changeable name plate.cmyk uv print",
+    "description": "Brand Easy imported Aluminium profile, changeable name plate. cmyk uv print",
     "category": "Premium Signboards",
     "images": [
       "/products/product1/image.png",
@@ -792,7 +792,7 @@ export const products: Product[] = [
   {
     "id": "product23",
     "title": "Led glow sign board manufacturing wholesale",
-    "description": "Led sunsign 5 year warranty and power supply 2 year warranty.impoted acrylic and board one year serv",
+    "description": "Brand Easy LED board with 5 year warranty and power supply 2 year warranty. Imported acrylic and board one year service.",
     "category": "LED Sign Boards",
     "images": [
       "/products/product23/image.png",
@@ -802,7 +802,7 @@ export const products: Product[] = [
       "/products/product23/image copy 5.png",
       "/products/product23/image copy.png"
     ],
-    "material": "Imported Acrylic Shell, Sunsign LEDs & GI Frame",
+    "material": "Imported Acrylic Shell, Brand Easy LEDs & GI Frame",
     "thickness": "3 inch Box Frame",
     "lightingType": "LED Backlit",
     "installationType": "Structure Mounted",
