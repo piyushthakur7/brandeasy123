@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Center: Logo image + Brand name text */}
         <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5 group shrink-0">
           <Image
-            src="/nav_logo.png"
+            src="/nav_logo.jpg"
             alt="Brand Easy Logo"
             width={44}
             height={44}
