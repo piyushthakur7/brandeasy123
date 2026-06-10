@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 export default function Footer() {
-  const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+917741961239";
+  const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+918320282847";
   const gstNumber = process.env.NEXT_PUBLIC_GST_NUMBER || "PENDING";
 
   return (

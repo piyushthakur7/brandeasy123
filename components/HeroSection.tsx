@@ -178,12 +178,30 @@ export default function HeroSection() {
                       alt={slideProducts[currentSlide].title}
                       fill
                       priority
-                      className="object-contain p-4 hover:scale-[1.04] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-contain p-4 sm:p-12 pb-24 group-hover:scale-[1.04] transition-transform duration-700"
                       unoptimized
                     />
                   )}
                 </motion.div>
               </AnimatePresence>
+
+              {/* Slider Controls (Arrows) */}
+              <button 
+                onClick={() => setCurrentSlide((prev) => (prev - 1 + slideProducts.length) % slideProducts.length)}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 bg-surface/80 hover:bg-surface border border-surface-light text-text rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-4 group-hover:translate-x-0"
+                aria-label="Previous slide"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              
+              <button 
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % slideProducts.length)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 bg-surface/80 hover:bg-surface border border-surface-light text-text rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0"
+                aria-label="Next slide"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
 
               {/* Floating Glassmorphic Fumes Text Banner */}
               {slideProducts[currentSlide] && (

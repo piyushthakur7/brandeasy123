@@ -496,12 +496,7 @@ export const products: Product[] = [
     "description": "all type tag and bach printing service",
     "category": "Branding & Marketing Materials",
     "images": [
-      "/products/product9/image.png",
-      "/products/product9/image copy 2.png",
-      "/products/product9/image copy 3.png",
-      "/products/product9/image copy 4.png",
-      "/products/product9/image copy 5.png",
-      "/products/product9/image copy.png"
+      "/products/product9.png"
     ],
     "material": "Premium Cardboard / PVC Sheet & Metal Pin",
     "thickness": "1.5mm",
@@ -520,11 +515,7 @@ export const products: Product[] = [
     "description": "2 year warranty cof",
     "category": "Stands & Promo Displays",
     "images": [
-      "/products/product10/image.png",
-      "/products/product10/image copy 2.png",
-      "/products/product10/image copy 3.png",
-      "/products/product10/image copy 4.png",
-      "/products/product10/image copy.png"
+      "/products/product10.png"
     ],
     "material": "Slim Aluminium Clip-on Frame & UV Translit Backlit Print",
     "thickness": "1 inch Profile",
@@ -626,13 +617,7 @@ export const products: Product[] = [
     "description": "Pvc card 1.02mm printing and logo ingreving and less print satin material available size 16mm,18mm,20mm",
     "category": "Branding & Marketing Materials",
     "images": [
-      "/products/product14/image.png",
-      "/products/product14/image copy 2.png",
-      "/products/product14/image copy 3.png",
-      "/products/product14/image copy 4.png",
-      "/products/product14/image copy 5.png",
-      "/products/product14/image copy 6.png",
-      "/products/product14/image copy.png"
+      "/products/product14.png"
     ],
     "material": "PVC 1.02mm Sheet & Fine Satin Ribbon Lanyard",
     "thickness": "1.02mm Card",
@@ -679,7 +664,7 @@ export const products: Product[] = [
     "description": "Alluminium base rolling standy and platinum black back flex 260 gsm.printing KMC pro ink Polo turbo machine.",
     "category": "Stands & Promo Displays",
     "images": [
-      "/products/product16/image.png"
+      "/products/product16.png"
     ],
     "material": "Aluminium Rolling Base & 260 GSM Platinum Black Back Flex",
     "thickness": "Standard Hardware",
@@ -698,16 +683,7 @@ export const products: Product[] = [
     "description": "Vinyl printing 120 mic .mimaki and Roland machine printing cartridges ink.8000 rs lifter cartage.",
     "category": "Flex & Vinyl Banners",
     "images": [
-      "/products/product17/image.png",
-      "/products/product17/image copy 2.png",
-      "/products/product17/image copy 3.png",
-      "/products/product17/image copy 4.png",
-      "/products/product17/image copy 5.png",
-      "/products/product17/image copy 6.png",
-      "/products/product17/image copy 7.png",
-      "/products/product17/image copy 8.png",
-      "/products/product17/image copy 9.png",
-      "/products/product17/image copy.png"
+      "/products/product17.png"
     ],
     "material": "120 Micron High-Opacity Vinyl Sheet (Eco Solvent Print)",
     "thickness": "120 Microns",
@@ -726,14 +702,7 @@ export const products: Product[] = [
     "description": "Original star flex printing 4 pass printing.polo turbo machine printing KMC pro ink use in Printing.2year outdoor warranty.",
     "category": "Flex & Vinyl Banners",
     "images": [
-      "/products/product18/image.png",
-      "/products/product18/image copy 2.png",
-      "/products/product18/image copy 3.png",
-      "/products/product18/image copy 4.png",
-      "/products/product18/image copy 5.png",
-      "/products/product18/image copy 6.png",
-      "/products/product18/image copy 7.png",
-      "/products/product18/image copy.png"
+      "/products/product18.png"
     ],
     "material": "Original Star Flex Sheet (Polo Turbo Machine 4-Pass Print)",
     "thickness": "340 GSM",
@@ -752,9 +721,7 @@ export const products: Product[] = [
     "description": "Platinum flex printing 240 gsm . machine polo turbo KMC pro ink use.kmc Pro ink price -1700 litter",
     "category": "Flex & Vinyl Banners",
     "images": [
-      "/products/product19/image.png",
-      "/products/product19/image copy 2.png",
-      "/products/product19/image copy.png"
+      "/products/product19.png"
     ],
     "material": "Platinum Flex Sheet (Polo Turbo Machine KMC Pro Ink)",
     "thickness": "240 GSM",
@@ -773,16 +740,7 @@ export const products: Product[] = [
     "description": "Standard Wooden Easel Display Board Stand for art and commercial displays.",
     "category": "Stands & Promo Displays",
     "images": [
-      "/products/product20/image.png",
-      "/products/product20/image copy 2.png",
-      "/products/product20/image copy 3.png",
-      "/products/product20/image copy 4.png",
-      "/products/product20/image copy 5.png",
-      "/products/product20/image copy 6.png",
-      "/products/product20/image copy 7.png",
-      "/products/product20/image copy 8.png",
-      "/products/product20/image copy 9.png",
-      "/products/product20/image copy.png"
+      "/products/product20.png"
     ],
     "material": "Premium Polish Finished Teak Wood Frame",
     "thickness": "Standard Size (5 Feet Height)",

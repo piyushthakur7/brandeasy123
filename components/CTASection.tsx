@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 export default function CTASection() {
-  const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+917741961239";
+  const companyPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE || "+918320282847";
   return (
     <section className="maroon-floral-bg py-24 md:py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#2DB34A]/40 to-transparent" />
