@@ -157,7 +157,10 @@ export const products: Product[] = [
     "description": "Stainless Steel 304 grade letters in Matt and Glossy finishes. Rust-proof and premium. Base price for 8-12 inch, 0.5 inch embossed.",
     "category": "3D Acrylic Letters",
     "images": [
-      "/products/product-media-concept-5.png"
+      "/products/product-media-concept-1.png",
+      "/products/product-media-concept-2.png",
+      "/products/product-media-concept-3.png",
+      "/products/product-media-concept-4.png"
     ],
     "material": "S.S 304",
     "thickness": "0.5 inch to 2 inch Embossed",

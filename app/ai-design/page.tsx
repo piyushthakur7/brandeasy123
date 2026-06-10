@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, MessageCircle, Wand2, ArrowRight, Download, RefreshCw, Box, Zap, Settings, PenTool } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { generateAIDesign } from "@/lib/actions";
 
 export default function AIDesignPage() {
   const [prompt, setPrompt] = useState("");
@@ -15,17 +16,27 @@ export default function AIDesignPage() {
   const materials = ["3D Acrylic", "Neon Glow", "SS 304 Metal", "Flex / Vinyl"];
   const industries = ["Retail Store", "Corporate Office", "Restaurant/Cafe", "Hospitality", "Medical"];
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     if (!prompt) return;
     setIsGenerating(true);
     setGeneratedImage(null);
 
-    // Simulate API request delay
-    setTimeout(() => {
+    try {
+      // Call the server action
+      const result = await generateAIDesign(prompt, material, industry, "16:9");
+      
+      if (result.success && result.imageUrl) {
+        setGeneratedImage(result.imageUrl);
+      } else {
+        console.error("Failed to generate design:", result.error);
+        alert(result.error || "Failed to generate design. Please ensure GEMINI_API_KEY is set in .env.local");
+      }
+    } catch (error) {
+      console.error("Error generating design:", error);
+      alert("An unexpected error occurred while generating the design.");
+    } finally {
       setIsGenerating(false);
-      // Hardcoded high-quality neon/signboard placeholder for the mock
-      setGeneratedImage("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80");
-    }, 4500);
+    }
   };
 
   return (

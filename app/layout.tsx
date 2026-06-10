@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { League_Spartan, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,13 +7,13 @@ import FloatingActions from "@/components/FloatingActions";
 import Preloader from "@/components/Preloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const outfit = Outfit({
+const leagueSpartan = League_Spartan({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${leagueSpartan.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-sans bg-background text-text transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Preloader />

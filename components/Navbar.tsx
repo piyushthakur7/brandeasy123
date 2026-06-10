@@ -41,10 +41,10 @@ export default function Navbar() {
           : "bg-background py-4 border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-20">
         
-        {/* Left: Desktop Nav links & Mobile toggles */}
-        <div className="flex items-center gap-4 md:gap-6 md:w-1/3">
+        {/* Left: Mobile Toggle & Logo */}
+        <div className="flex items-center gap-4 md:w-1/4">
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={() => setOpen(!open)}
@@ -55,7 +55,32 @@ export default function Navbar() {
             <ThemeToggle />
           </div>
           
-          <nav className="hidden md:flex items-center gap-5">
+          <Link href="/" className="hidden md:flex items-center group shrink-0">
+            <Image
+              src="/nav_logo.jpg"
+              alt="Brand Easy Logo"
+              width={120}
+              height={48}
+              className="object-contain h-12 w-auto rounded-sm"
+              priority
+            />
+          </Link>
+        </div>
+
+        {/* Center: Mobile Logo OR Desktop Nav links */}
+        <div className="flex-1 flex justify-center">
+          <Link href="/" className="md:hidden flex items-center group shrink-0">
+            <Image
+              src="/nav_logo.jpg"
+              alt="Brand Easy Logo"
+              width={100}
+              height={40}
+              className="object-contain h-10 w-auto rounded-sm"
+              priority
+            />
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const linkClasses = `text-[11px] tracking-[0.1em] uppercase font-sans font-bold transition-all hover:text-accent whitespace-nowrap ${
                 pathname === link.href ? "text-accent" : "text-text"
@@ -74,43 +99,23 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* Center: Logo image + Brand name text */}
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5 group shrink-0">
-          <Image
-            src="/nav_logo.jpg"
-            alt="Brand Easy Logo"
-            width={44}
-            height={44}
-            className="object-contain h-11 w-auto"
-            priority
-          />
-          <div className="flex flex-col">
-            <span className="font-heading text-2xl font-bold leading-none tracking-wide text-text group-hover:text-accent transition-colors">
-              <span className="text-accent">Brand</span>
-              <span className="text-text">Easy</span>
-            </span>
-            <span className="text-accent-dark text-[9px] tracking-[0.25em] uppercase mt-1">
-              Industrial Signage
-            </span>
-          </div>
-        </Link>
-
         {/* Right: Contact Button & Theme Toggle */}
-        <div className="hidden md:flex items-center justify-end md:w-1/3 gap-4">
+        <div className="hidden md:flex items-center justify-end md:w-1/4 gap-3 lg:gap-4">
           <Link
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:bg-[#128C7E] transition-colors shadow-sm"
+            className="flex items-center gap-2 bg-[#25D366] text-white px-3 lg:px-4 py-2.5 rounded-sm text-[10px] lg:text-[11px] font-bold uppercase tracking-widest hover:bg-[#128C7E] transition-colors shadow-sm whitespace-nowrap"
           >
             WhatsApp
           </Link>
           <a
             href={`tel:${companyPhone}`}
-            className="flex items-center gap-2 bg-accent text-background px-5 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+            className="flex items-center gap-2 bg-accent text-background px-3 lg:px-5 py-2.5 rounded-sm text-[10px] lg:text-[11px] font-bold uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
           >
             <Phone size={14} />
-            {companyPhone}
+            <span className="hidden xl:inline">{companyPhone}</span>
+            <span className="xl:hidden">Call</span>
           </a>
           <ThemeToggle />
         </div>
