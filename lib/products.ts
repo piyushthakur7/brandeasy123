@@ -16,7 +16,27 @@ export interface Product {
   basePrice: number; // Price per unit/sqft/inch
   minimumOrder: string;
   turnaroundTime: string;
+
+  // Additional Detailing Properties
+  features?: string[];
+  useCases?: string[];
+  extendedDescription?: string;
 }
+
+export const categoryGroups = {
+  "Signage & Displays": [
+    "3D Acrylic Letters",
+    "LED Sign Boards",
+    "ACP Panels",
+    "Premium Signboards",
+  ],
+  "Print Business & Branding": [
+    "Flex & Vinyl Banners",
+    "Stickers & Custom Decals",
+    "Stands & Promo Displays",
+    "Branding & Marketing Materials",
+  ]
+};
 
 export const categories = [
   "3D Acrylic Letters",
@@ -47,7 +67,20 @@ export const products: Product[] = [
     "basePrice": 140,
     "minimumOrder": "10 Inches",
     "turnaroundTime": "3-5 Business Days",
-    "isFeatured": true
+    "isFeatured": true,
+    "extendedDescription": "This premium aluminium channel letter is built with a heavy-duty frame and 2MM high-grade acrylic for maximum light diffusion. It's perfectly suited for high-impact outdoor visibility.",
+    "features": [
+      "Rust-proof aluminium body structure",
+      "High-intensity LED backlighting",
+      "Weather-resistant seal for outdoor use",
+      "Customizable font and colors"
+    ],
+    "useCases": [
+      "Corporate Headquarters",
+      "Retail Storefronts",
+      "Boutique Hotels",
+      "Shopping Malls"
+    ]
   },
   {
     "id": "product-media-concept-2",
@@ -66,7 +99,19 @@ export const products: Product[] = [
     "basePrice": 180,
     "minimumOrder": "10 Inches",
     "turnaroundTime": "3-5 Business Days",
-    "isFeatured": false
+    "isFeatured": false,
+    "extendedDescription": "Upgraded with 3MM acrylic, these channel letters offer superior structural rigidity and a smoother light dispersion. Ideal for larger letters where flex is a concern.",
+    "features": [
+      "Extra thick 3MM acrylic face",
+      "Even light distribution without hot spots",
+      "Durable aluminium returns",
+      "Energy-efficient LED modules"
+    ],
+    "useCases": [
+      "Large scale building signs",
+      "Premium retail environments",
+      "Hospitality facades"
+    ]
   },
   {
     "id": "product-media-concept-3",

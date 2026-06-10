@@ -40,7 +40,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 w-fit"
             >
               <Sparkles size={13} className="text-accent animate-pulse" />
-              <span className="text-accent text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em]">Premium B2B Signage Fabrication</span>
+              <span className="text-accent text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em]">India's Premium Signage & Print Products</span>
             </motion.div>
             
             {/* Main Catchy Heading */}
@@ -50,8 +50,8 @@ export default function HeroSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="text-text font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight"
             >
-              Fabricating High-Impact <br />
-              <span className="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">Brand Signages</span>
+              Discover Premium <br />
+              <span className="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">Corporate Signages & Displays</span>
             </motion.h1>
             
             {/* Context Subtitle */}
@@ -61,7 +61,7 @@ export default function HeroSection() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-text-muted text-sm sm:text-base leading-relaxed max-w-xl"
             >
-              Transform your business facade with state-of-the-art 3D letters, LED signs, ACP cladding, and premium promotional standees. Engineered with accuracy and delivered across India.
+              Explore our extensive catalog of state-of-the-art 3D letters, LED signs, and promotional materials. Choose your product and get instant dimensional quotes.
             </motion.p>
             
             {/* Horizontal Specs Strip */}
@@ -94,8 +94,8 @@ export default function HeroSection() {
                   <ShieldCheck size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">Logistics</p>
-                  <p className="text-xs text-text font-bold">Pan-India Install</p>
+                  <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider">Quality</p>
+                  <p className="text-xs text-text font-bold">100% Inspected</p>
                 </div>
               </div>
             </motion.div>

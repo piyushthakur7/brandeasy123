@@ -10,9 +10,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "B2B Catalog", href: "/products" },
-  { label: "Services", href: "/services" },
+  { label: "Signage", href: "/products#3d-acrylic-letters" },
+  { label: "Print & Branding", href: "/products#flex-&-vinyl-banners" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
   { label: "About Us", href: "/about" },
 ];
 

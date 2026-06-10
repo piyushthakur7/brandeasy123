@@ -595,6 +595,60 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         </div>
       </section>
 
+      {/* Product Specific Features & Use Cases */}
+      {(product.features?.length || product.useCases?.length || product.extendedDescription) && (
+        <section className="py-20 bg-surface/30 border-y border-surface-light scroll-mt-24 transition-colors">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              
+              {/* Left: Features & Extended Description */}
+              <div className="space-y-8">
+                <div>
+                  <span className="px-3 py-1 bg-accent/10 text-accent text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 inline-block">
+                    Product Details
+                  </span>
+                  <h2 className="text-3xl font-heading font-extrabold text-text mb-4">
+                    Key Features
+                  </h2>
+                  {product.extendedDescription && (
+                    <p className="text-text-muted text-sm leading-relaxed mb-6">
+                      {product.extendedDescription}
+                    </p>
+                  )}
+                  {product.features && product.features.length > 0 && (
+                    <ul className="space-y-3">
+                      {product.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <CheckCircle2 size={16} className="text-accent mt-0.5 shrink-0" />
+                          <span className="text-sm text-text font-medium">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+
+              {/* Right: Use Cases */}
+              {product.useCases && product.useCases.length > 0 && (
+                <div className="bg-background border border-surface-light rounded-2xl p-6 md:p-8 shadow-lg">
+                  <h3 className="font-heading font-bold text-xl text-text border-b border-surface-light pb-4 mb-6 flex items-center gap-2">
+                    <Target size={20} className="text-accent-orange" /> Common Use Cases
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {product.useCases.map((useCase, i) => (
+                      <div key={i} className="p-4 bg-surface rounded-xl border border-surface-light flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+                        <span className="text-sm font-bold text-text leading-tight">{useCase}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Interactive Custom Quote Builder */}
       <section id="quote-builder" className="py-20 bg-surface/30 border-t border-surface-light scroll-mt-24 transition-colors">
         <div className="max-w-4xl mx-auto px-4">
