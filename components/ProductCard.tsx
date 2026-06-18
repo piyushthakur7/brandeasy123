@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { Product } from "@/lib/products";
-import Image from "next/image";
+import FallbackImage from "./FallbackImage";
 import { MessageCircle, ExternalLink } from "lucide-react";
 import { getWhatsAppQuoteLink } from "@/lib/whatsapp";
 
@@ -20,12 +20,11 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Image Container */}
       <div className="relative aspect-video overflow-hidden bg-background">
         {product.images && product.images.length > 0 ? (
-          <Image 
+          <FallbackImage 
             src={product.images[0]} 
             alt={product.title} 
             fill 
             className="object-cover group-hover:scale-105 transition-transform duration-500"
-            referrerPolicy="no-referrer"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-surface-light/20 text-text-muted">

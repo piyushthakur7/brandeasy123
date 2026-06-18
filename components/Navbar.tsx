@@ -61,9 +61,9 @@ export default function Navbar() {
             <Image
               src="/nav_logo.jpg"
               alt="Brand Easy Logo"
-              width={120}
-              height={48}
-              className="object-contain h-12 w-auto rounded-sm"
+              width={160}
+              height={64}
+              className="object-contain h-16 w-auto rounded-md bg-white p-1 shadow-sm"
               priority
             />
           </Link>
@@ -75,9 +75,9 @@ export default function Navbar() {
             <Image
               src="/nav_logo.jpg"
               alt="Brand Easy Logo"
-              width={100}
-              height={40}
-              className="object-contain h-10 w-auto rounded-sm"
+              width={120}
+              height={48}
+              className="object-contain h-12 w-auto rounded-md bg-white p-1 shadow-sm"
               priority
             />
           </Link>

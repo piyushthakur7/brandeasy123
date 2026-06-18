@@ -21,7 +21,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ["var(--font-arista)", "var(--font-sans)", "sans-serif"],
-        sans: ["var(--font-arista)", "sans-serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
         arista: ["var(--font-arista)", "sans-serif"],
       },
     },

@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { getWhatsAppQuoteLink } from "@/lib/whatsapp";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
+import FallbackImage from "@/components/FallbackImage";
 import Link from "next/link";
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -337,7 +337,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   className="absolute inset-0 p-6 flex items-center justify-center"
                 >
                   {product.images && product.images.length > 0 ? (
-                    <Image 
+                    <FallbackImage 
                       src={product.images[selectedImage]} 
                       alt={product.title} 
                       fill 
@@ -364,7 +364,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     onClick={() => setSelectedImage(i)}
                     className={`relative w-20 aspect-[4/3] bg-surface border shrink-0 transition-all rounded-lg overflow-hidden ${selectedImage === i ? "border-accent ring-2 ring-accent/20" : "border-surface-light hover:border-accent/40"}`}
                   >
-                    <Image src={img} alt={`Preview ${i}`} fill className="object-cover p-1" unoptimized />
+                    <FallbackImage src={img} alt={`Preview ${i}`} fill className="object-cover p-1" unoptimized />
                   </button>
                 ))}
               </div>
@@ -400,7 +400,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   className="group relative aspect-square overflow-hidden rounded-2xl bg-surface border border-surface-light hover:shadow-xl transition-all duration-500 cursor-pointer"
                   onClick={() => setSelectedImage(idx)}
                 >
-                  <Image 
+                  <FallbackImage 
                     src={img} 
                     alt={`${product.title} view ${idx + 1}`} 
                     fill 
