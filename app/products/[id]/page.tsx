@@ -389,29 +389,59 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {product.images.map((img, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="group relative aspect-square overflow-hidden rounded-2xl bg-surface border border-surface-light hover:shadow-xl transition-all duration-500 cursor-pointer"
-                  onClick={() => setSelectedImage(idx)}
+            <div className="relative w-full max-w-5xl mx-auto aspect-[16/9] sm:aspect-video bg-surface rounded-2xl overflow-hidden border border-surface-light group shadow-2xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedImage}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0"
                 >
                   <FallbackImage 
-                    src={img} 
-                    alt={`${product.title} view ${idx + 1}`} 
+                    src={product.images[selectedImage]} 
+                    alt={`${product.title} view ${selectedImage + 1}`} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    className="object-cover" 
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-text">View Spec Image {idx + 1}</span>
-                  </div>
+                  {/* Subtle overlay gradient for premium feel */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                 </motion.div>
-              ))}
+              </AnimatePresence>
+
+              {product.images.length > 1 && (
+                <>
+                  {/* Navigation Arrows */}
+                  <button 
+                    onClick={() => setSelectedImage((prev) => (prev - 1 + product.images.length) % product.images.length)}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/80 hover:bg-background border border-surface-light text-text rounded-full shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                    aria-label="Previous image"
+                  >
+                    <ArrowLeft size={20} />
+                  </button>
+                  <button 
+                    onClick={() => setSelectedImage((prev) => (prev + 1) % product.images.length)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/80 hover:bg-background border border-surface-light text-text rounded-full shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                    aria-label="Next image"
+                  >
+                    <ArrowRight size={20} />
+                  </button>
+
+                  {/* Dots Indicators */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                    {product.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setSelectedImage(idx)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm ${selectedImage === idx ? "w-8 bg-accent" : "bg-white/50 hover:bg-white"}`}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </section>
