@@ -21,21 +21,21 @@ export default function FeaturedProducts() {
     : products.slice(0, 6);
 
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div
             className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
           >
             <div>
-              <p className="text-[#2DB34A] text-[10px] font-black tracking-[0.5em] uppercase mb-4">Curated Collection</p>
-              <h2 className="text-[#0A2733] font-serif text-4xl md:text-6xl font-bold leading-tight">
-                Product <span className="text-[#0099D4] italic">Showcase</span>
+              <p className="text-accent text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Curated Collection</p>
+              <h2 className="text-text font-heading text-3xl md:text-5xl font-bold leading-[1.1]">
+                Product <span className="text-accent">Showcase</span>
               </h2>
             </div>
             <div>
               <Link 
                 href="/products" 
-                className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase text-[#0A2733] group hover:text-[#2DB34A] transition-colors"
+                className="flex items-center gap-3 text-[10px] font-bold tracking-[0.2em] uppercase text-text group hover:text-accent transition-colors"
               >
                 Browse Catalog
                 <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
@@ -63,7 +63,7 @@ export default function FeaturedProducts() {
                <Link 
                  key={link.label}
                  href={`/products#${link.hash}`}
-                 className="px-6 py-3 rounded-full border border-slate-200 text-[#0A2733]/60 text-[10px] font-bold tracking-widest uppercase hover:border-[#2DB34A] hover:text-[#2DB34A] transition-all bg-white"
+                 className="px-6 py-3 rounded-full border border-surface-light text-text-muted text-[10px] font-bold tracking-[0.2em] uppercase hover:border-accent hover:text-accent transition-all bg-surface"
                >
                  {link.label}
                </Link>
