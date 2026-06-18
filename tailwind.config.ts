@@ -20,8 +20,9 @@ const config: Config = {
         "text-muted": "var(--text-muted)",
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "sans-serif"],
-        sans: ["var(--font-sans)", "sans-serif"],
+        heading: ["var(--font-arista)", "var(--font-sans)", "sans-serif"],
+        sans: ["var(--font-arista)", "sans-serif"],
+        arista: ["var(--font-arista)", "sans-serif"],
       },
     },
   },

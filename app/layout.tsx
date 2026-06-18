@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { League_Spartan, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,16 +8,34 @@ import FloatingActions from "@/components/FloatingActions";
 import Preloader from "@/components/Preloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const leagueSpartan = League_Spartan({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
+
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+});
+
+const arista = localFont({
+  src: [
+    {
+      path: '../public/fonts/Arista-Pro-Light-trial.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Arista-Pro-Regular-trial.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Arista-Pro-SemiBold-trial.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-arista',
+  display: 'swap',
 });
 
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -32,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${leagueSpartan.variable} ${montserrat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${montserrat.variable} ${arista.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-sans bg-background text-text transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Preloader />
