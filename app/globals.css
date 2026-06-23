@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'NumbersFallback';
+  /* Use simple system fonts for numbers */
+  src: local('Segoe UI'), local('Helvetica Neue'), local('Arial'), local('sans-serif');
+  /* Only apply to numbers (0-9) and common math/phone symbols (+, -, (, ), .) */
+  unicode-range: U+0030-0039, U+002B, U+002D, U+0028, U+0029, U+002E, U+002C;
+}
+
 :root {
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-arista);
 }
 
 :root {
@@ -37,7 +45,7 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: var(--font-sans);
+  font-family: 'NumbersFallback', var(--font-arista), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

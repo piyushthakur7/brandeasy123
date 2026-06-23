@@ -20,9 +20,10 @@ const config: Config = {
         "text-muted": "var(--text-muted)",
       },
       fontFamily: {
-        heading: ["var(--font-arista)", "var(--font-sans)", "sans-serif"],
-        sans: ["var(--font-sans)", "sans-serif"],
-        arista: ["var(--font-arista)", "sans-serif"],
+        heading: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
+        sans: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
+        serif: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
+        arista: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
       },
     },
   },
