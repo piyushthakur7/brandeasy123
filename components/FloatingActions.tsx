@@ -9,7 +9,7 @@ export default function FloatingActions() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847";
 
   return (
-    <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
+    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[100] flex flex-col items-end gap-3 md:gap-4">
       {/* AI Generator Button */}
       <motion.div
         whileHover={{ scale: 1.05 }}

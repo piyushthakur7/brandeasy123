@@ -4,9 +4,9 @@
 
 @font-face {
   font-family: 'NumbersFallback';
-  /* Use simple system fonts for numbers */
-  src: local('Segoe UI'), local('Helvetica Neue'), local('Arial'), local('sans-serif');
-  /* Only apply to numbers (0-9) and common math/phone symbols (+, -, (, ), .) */
+  /* Robust system font fallback for numbers across iOS, Android, Windows, Mac */
+  src: local('Roboto-Regular'), local('Roboto'), local('Helvetica Neue'), local('Helvetica'), local('Arial'), local('Segoe UI'), local('system-ui');
+  /* Apply to numbers (0-9) and common math/phone symbols (+, -, (, ), .) */
   unicode-range: U+0030-0039, U+002B, U+002D, U+0028, U+0029, U+002E, U+002C;
 }
 
