@@ -180,7 +180,6 @@ export default function HeroSection() {
                       priority
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-contain p-4 sm:p-12 pb-24 group-hover:scale-[1.04] transition-transform duration-700"
-                      unoptimized
                     />
                   )}
                 </motion.div>
