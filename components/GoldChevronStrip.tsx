@@ -8,7 +8,7 @@ export default function GoldChevronStrip() {
     { icon: Palette, text: "Free Design Proofs" },
     { icon: Clock, text: "3-5 Day Delivery" },
     { icon: ShieldCheck, text: "Premium Quality Guaranteed" },
-    { icon: Phone, text: "1800-XXX-XXXX" },
+    { icon: Phone, text: "+91 8320282847" },
   ];
 
   return (
