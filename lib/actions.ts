@@ -15,16 +15,25 @@ export async function generateAIDesign(
       return { success: false, error: "Gemini API key is missing. Please add GEMINI_API_KEY to your .env.local file." };
     }
 
-    // Build a detailed base prompt using the material and industry context
-    const basePrompt = `Professional, photorealistic signage design concept. Material: ${material}. Industry: ${industry}. ${prompt}. High quality, realistic lighting, highly detailed, architectural visualization, commercial signage, mounted on a building facade.`;
-
-    // Use Gemini Flash to enhance the prompt into optimized image-generation keywords
+    // Use Gemini to create a faithful, enhanced image prompt from the user's description
     const textResponse = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: `You are an expert AI image prompt engineer. Take the following description and rewrite it into a highly detailed, comma-separated list of keywords optimized for an AI image generator. Do not include any conversational text, just the keywords.\n\nDescription: ${basePrompt}`
+        contents: `You are an expert AI image prompt engineer for a printing and signage company called "Brand Easy".
+
+A customer has described what they want:
+- Description: "${prompt}"
+- Preferred material/style: ${material}
+- Their business type: ${industry}
+
+Your job: Rewrite this into a highly detailed, comma-separated list of keywords optimized for an AI image generator. 
+IMPORTANT RULES:
+1. Stay FAITHFUL to what the customer actually described. If they want a banner, generate a banner. If they want a signboard, generate a signboard.
+2. Incorporate the material style (${material}) as an aesthetic influence (e.g. if "Neon Glow" make it neon-styled, if "3D Acrylic" make it look like polished acrylic lettering).
+3. Use the industry (${industry}) only as subtle context for the design theme.
+4. Output ONLY comma-separated keywords. No conversational text.`
     });
 
-    const enhancedPrompt = textResponse.text?.trim() || basePrompt;
+    const enhancedPrompt = textResponse.text?.trim() || `${prompt}, ${material} style, ${industry}, professional design, high quality, photorealistic`;
     
     // Generate an image URL using Pollinations.ai with the enhanced prompt
     // We add a random seed to bypass caching

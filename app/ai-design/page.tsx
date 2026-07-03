@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, MessageCircle, Wand2, ArrowRight, Download, RefreshCw, Box, Zap, Settings, PenTool } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+// Using regular img for AI-generated external images (no next/image hostname restrictions)
 import { generateAIDesign } from "@/lib/actions";
 
 export default function AIDesignPage() {
@@ -188,11 +188,11 @@ export default function AIDesignPage() {
                     initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 bg-background"
                   >
-                    <Image 
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
                       src={generatedImage} 
                       alt="Generated Signboard"
-                      fill
-                      className="object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                     {/* UI Overlay on Result */}
                     <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-background via-background/80 to-transparent">
