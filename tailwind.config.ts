@@ -23,6 +23,7 @@ const config: Config = {
         heading: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
         sans: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
         serif: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
+        mono: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
         arista: ["'NumbersFallback'", "var(--font-arista)", "sans-serif"],
       },
     },

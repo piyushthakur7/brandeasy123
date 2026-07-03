@@ -12,6 +12,7 @@ export default function AIDesignPage() {
   const [industry, setIndustry] = useState("Retail Store");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  const [generatedTitle, setGeneratedTitle] = useState<string | null>(null);
 
   const materials = ["3D Acrylic", "Neon Glow", "SS 304 Metal", "Flex / Vinyl"];
   const industries = ["Retail Store", "Corporate Office", "Restaurant/Cafe", "Hospitality", "Medical"];
@@ -27,6 +28,7 @@ export default function AIDesignPage() {
       
       if (result.success && result.imageUrl) {
         setGeneratedImage(result.imageUrl);
+        setGeneratedTitle(result.title || `Custom ${material} Design`);
       } else {
         console.error("Failed to generate design:", result.error);
         alert(result.error || "Failed to generate design. Please ensure GEMINI_API_KEY is set in .env.local");
@@ -199,7 +201,9 @@ export default function AIDesignPage() {
                       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
                           <span className="inline-block px-2 py-1 bg-accent/20 text-accent text-[8px] font-black uppercase tracking-widest rounded mb-2">Concept Rendered</span>
-                          <h3 className="text-xl font-heading font-bold text-white mb-1">Custom {material} Signage</h3>
+                          <h3 className="text-xl font-heading font-bold text-white mb-1">
+                            {generatedTitle || `Custom ${material} Design`}
+                          </h3>
                           <p className="text-xs text-text-muted/80 font-mono">"{prompt}"</p>
                         </div>
                         <div className="flex gap-3">
@@ -213,7 +217,7 @@ export default function AIDesignPage() {
                             <Download size={18} />
                           </a>
                           <a 
-                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}?text=${encodeURIComponent(`Hi, I generated a concept in your AI Studio for a ${material} sign for my ${industry}. Can we discuss a manufacturing quote?`)}`}
+                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}?text=${encodeURIComponent(`Hi, I generated a concept in your AI Studio: "${generatedTitle || prompt}". Can we discuss a manufacturing quote?`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-accent text-background px-6 py-3 rounded-sm text-[11px] font-black uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"

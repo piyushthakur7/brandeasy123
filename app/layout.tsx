@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -9,12 +8,6 @@ import Preloader from "@/components/Preloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 const arista = localFont({
   src: [
@@ -51,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${arista.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${arista.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-sans bg-background text-text transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Preloader />
