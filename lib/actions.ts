@@ -6,28 +6,19 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function generateAIDesign(
   prompt: string,
-  mode: string,
-  brandName: string,
+  material: string,
+  industry: string,
   aspectRatio: string
 ): Promise<{ success: boolean; error?: string; imageUrl?: string }> {
   try {
     if (!process.env.GEMINI_API_KEY) {
-      return { success: false, error: "Gemini API key is missing." };
+      return { success: false, error: "Gemini API key is missing. Please add GEMINI_API_KEY to your .env.local file." };
     }
 
-    let basePrompt = "";
-    if (mode === "signage") {
-      basePrompt = `Professional architectural signage design for a brand named "${brandName}". ${prompt}. High quality, realistic lighting, highly detailed.`;
-    } else if (mode === "wall-art") {
-      basePrompt = `Fine art gallery style wall decor. ${prompt}. High quality, artistic, beautiful, detailed.`;
-    } else if (mode === "mural") {
-      basePrompt = `Full wall mural art design. ${prompt}. Immersive environment, highly detailed patterns.`;
-    } else {
-      basePrompt = prompt;
-    }
+    // Build a detailed base prompt using the material and industry context
+    const basePrompt = `Professional, photorealistic signage design concept. Material: ${material}. Industry: ${industry}. ${prompt}. High quality, realistic lighting, highly detailed, architectural visualization, commercial signage, mounted on a building facade.`;
 
-    // Since Imagen requires a paid plan, we use Gemini Flash to enhance the prompt
-    // and then use Pollinations (a free community AI image generator) to render it.
+    // Use Gemini Flash to enhance the prompt into optimized image-generation keywords
     const textResponse = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: `You are an expert AI image prompt engineer. Take the following description and rewrite it into a highly detailed, comma-separated list of keywords optimized for an AI image generator. Do not include any conversational text, just the keywords.\n\nDescription: ${basePrompt}`

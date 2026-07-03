@@ -203,11 +203,17 @@ export default function AIDesignPage() {
                           <p className="text-xs text-text-muted/80 font-mono">"{prompt}"</p>
                         </div>
                         <div className="flex gap-3">
-                          <button className="flex items-center justify-center w-12 h-12 bg-surface/80 backdrop-blur-sm border border-surface-light rounded-sm hover:border-text transition-colors text-text">
+                          <a
+                            href={generatedImage}
+                            download="brandeasy-ai-concept.jpg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center w-12 h-12 bg-surface/80 backdrop-blur-sm border border-surface-light rounded-sm hover:border-text transition-colors text-text"
+                          >
                             <Download size={18} />
-                          </button>
+                          </a>
                           <a 
-                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}?text=Hi, I generated a concept in your AI Studio for a ${material} sign for my ${industry}. Can we discuss a manufacturing quote?`}
+                            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918320282847"}?text=${encodeURIComponent(`Hi, I generated a concept in your AI Studio for a ${material} sign for my ${industry}. Can we discuss a manufacturing quote?`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-accent text-background px-6 py-3 rounded-sm text-[11px] font-black uppercase tracking-widest hover:bg-accent-dark transition-all shadow-lg flex items-center gap-2 whitespace-nowrap"
